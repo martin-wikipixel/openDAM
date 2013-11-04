@@ -2,6 +2,161 @@
 
 ## What ##
 
+OpenDAM is an open source digital asset management platform to centralize , organize , manage and share picture and video files.
+
+##  System requirements ##
+
+The OpenDam application requires :
+
+- A Web Server with an OS(Debian, Ubuntu, etc.),
+- PHP 5.3 minimum,
+- A Connection to a  MySql Database,
+- The Application [NODE.JS](http://nodejs.org/),
+- The Application [FFMPEG](http://www.ffmpeg.org/),
+- The Application [IMAGEMAGICK](http://www.imagemagick.org/).
+
+## Installation ##
+
+When you have finished downloading the application , unzip it in the directory "web" of your server (/var/www/ or /home/www/ in most cases). You should have a path such as /var/www/opendam/.
+
+## Configuration ## 
+
+#### Directory Permissions ####
+
+You must first of all, change the directory cache/ and log/ so that the application can embeded:
+
+```
+chmod 777 cache/ log/
+```
+
+You should also authorize permission to the file to upload media :
+
+```
+chmod 767 -R web/data/
+```
+
+#### Web server #### 
+Replace /path/to/application/ the path to the application folder.
+
+```
+Listen 80
+NameVirtualHost 127.0.0.1:80
+
+<VirtualHost 127.0.0.1:80>
+    DocumentRoot "/path/to/application/web"
+    DirectoryIndex index.php
+
+    <Directory "/path/to/application/web">
+        Options -Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Allow from All
+    </Directory>
+
+    Alias /sf /path/to/application/lib/vendor/symfony/data/web/sf
+    <Directory "/path/to/application/lib/vendor/symfony/data/web/sf">
+        AllowOverride All
+        Allow from all
+    </Directory>
+</VirtualHost>
+```
+
+Restart Apache, so the modifications can be reloaded.
+
+From the server , open a browser and type in the address bar http://localhost/ . You arrive at the login screen of the application.
+
+#### PHP #### 
+
+Some guidelines PHP must be enabled / disabled. Must edit the files /etc/php5/cli/php.ini and /etc/php5/apache2/php.ini If these directives are prefixed by the character ; it must be removed.
+
+```
+mbstring.language = UTF-8  
+mbstring.internal_encoding  = UTF-8
+mbstring.http_input = auto
+mbstring.http_output = UTF-8
+
+mbstring.encoding_translation = On (Si la version de PHP < 5.4)
+mbstring.detect_order = auto
+mbstring.substitute_character = none
+
+expose_php = Off
+display_errors = Off
+log_errors = On
+short_open_tag = Off
+magic_quotes_gpc = Off
+register_globals = Off
+session.auto_start = 0
+```
+Restart Apache for the changes to be loaded.
+
+#### Node.js ####
+
+You must then install the less for the node.js module
+
+```
+npm install -g less
+```
+
+#### FFMPEG #### 
+
+To ensure the proper functioning video conversion tool , the following libraries must be installed and configured for FFMPEG :
+- [LAME](http://lame.sourceforge.net/),
+- x264,
+- libvpx.
+
+To check your version of ffmpeg has been configured , enter :
+
+```
+ffmpeg
+```
+
+Among the lines of the command output , you should see :
+
+```
+configuration: --enable-libmp3lame --enable-libx264 --enable-libvpx
+```
+
+This means that FFMPEG does support the essential OpenDam modules.
+
+#### MySql #### 
+
+To create the database , run the file located in ```config/data/database.sql```.
+
+Then edit the ```config/databses.yml``` file and change the SQL as well as the login and password (```myHost```, ```myDatabase```, ```myUsername``` et ```myPassword``).
+
+```
+all:
+  propel:
+    class: sfPropelDatabase
+    param:
+      classname: PropelPDO
+      dsn: 'mysql:host=myHost;dbname=myDatabase'
+      username: myUsername
+      password: myPassword
+      encoding: utf8
+      persistent: true
+      pooling: true
+```
+
+Once you are done, you need to clear the cache of the application by the command:
+
+```
+php symfony cc
+
+```
+
+## Use ##
+The application contains a default set of tests to show you a taste of OpenDam solution.
+To log on, simply enter an email (```john.doe@opendam.org```) et un mot de passe (```opendam```).
+
+
+
+
+
+
+## Français ##
+
+## What ##
+
 OpenDAM is an open source digital asset management platform to centralize, organize, manage and share image and video files. 
 
 ## Pré-requis ##
