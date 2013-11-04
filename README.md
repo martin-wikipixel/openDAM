@@ -1,5 +1,9 @@
 # OPENDAM (v1.0.0) #
 
+## What ##
+
+OpenDAM is an open source digital asset management platform to centralize, organize, manage and share image and video files. 
+
 ## Pré-requis ##
 
 #### Système ####
