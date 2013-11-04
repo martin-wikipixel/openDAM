@@ -4,6 +4,8 @@
 
 OpenDAM is an open source digital asset management platform to centralize , organize , manage and share picture and video files.
 
+For more information, please visit [Wikipixel](http://wikipixel.com/)
+
 ##  System requirements ##
 
 The OpenDam application requires :
@@ -17,7 +19,7 @@ The OpenDam application requires :
 
 ## Installation ##
 
-When you have finished downloading the application , unzip it in the directory "web" of your server (/var/www/ or /home/www/ in most cases). You should have a path such as /var/www/opendam/.
+When you have finished downloading the application , unzip it in the directory "web" of your server (```/var/www/```ou ```/home/www/``` in most cases). You should have a path such as ```/var/www/opendam/```.
 
 ## Configuration ## 
 
@@ -157,7 +159,9 @@ To log on, simply enter an email (```john.doe@opendam.org```) et un mot de passe
 
 ## What ##
 
-OpenDAM is an open source digital asset management platform to centralize, organize, manage and share image and video files. 
+OpenDAM est une plateforme cloud Open-source de gestion et partage de fichiers images et vidéos.
+
+Pour plus d'informations, visitez [Wikipixel](http://wikipixel.com/)
 
 ## Pré-requis ##
 
