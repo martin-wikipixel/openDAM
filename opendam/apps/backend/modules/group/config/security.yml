@@ -1,0 +1,5 @@
+publicShow:
+  is_secure: false
+
+authentication:
+  is_secure: false

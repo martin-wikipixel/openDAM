@@ -1,0 +1,92 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout
+
+prepareSuccess:
+  layout    : frameLayout
+
+### frame Layout ###
+inviteUsersSuccess:
+  javascripts: [jquery.tagit.min.js, jquery.timepicker.min.js]
+  stylesheets: [jquery.tagit.css]
+
+tagsSuccess:
+  javascripts: [jquery.treeview.file.min.js, jquery.treeview.file.edit.min.js, jquery.treeview.file.async.min.js]
+  stylesheets: [jquery.treeview.css]
+
+### modal Layout ###
+manageUsersSuccess:
+  javascripts: [jquery.timepicker.min.js, jquery.tagit.min.js]
+  stylesheets: [jquery.tagit.css]
+  layout     : modal
+
+rightUserListSuccess:
+  layout     : frameLayout_v2
+  javascripts: [apps/backend/src/modules/group/rightUserList.js]
+
+rightUserSuccess:
+  javascripts: [apps/backend/src/modules/group/rightUserSearch.js]
+  layout     : frameLayout_v2
+
+rightGroupSuccess:
+  javascripts: [apps/backend/src/modules/group/rightGroupSearch.js]
+  layout     : frameLayout_v2
+
+rightGroupListSuccess:
+  javascripts: [apps/backend/src/modules/group/rightGroupList.js]
+  layout: frameLayout_v2
+
+rightConstraintListSuccess:
+  layout     : frameLayout_v2
+  javascripts: [apps/backend/src/modules/group/rightConstraintList.js]
+
+### no layout ###
+thumbnailUploadSuccess:
+  has_layout: false
+
+importSuccess:
+  has_layout: false
+
+manageGroup2Success:
+  has_layout: false
+
+speedStepSuccess:
+  has_layout: false
+
+### layout ###
+showSuccess: 
+  layout: layout
+  javascripts: [jquery.masonry.min.js, jquery.slimscroll.js, jquery.myWall.js]
+
+homeSuccess:
+  layout    : layout
+
+testSuccess: 
+  layout: layout
+
+sharedSuccess:
+  layout: layout
+  javascripts: [jquery.masonry.min.js, jquery.myWall.js]
+  stylesheets: [jquery-ui-1.7.1.custom.css]
+
+privateSuccess:
+  layout: layout
+  javascripts: [jquery.masonry.min.js, jquery.myWall.js]
+  stylesheets: [jquery-ui-1.7.1.custom.css]
+
+listSuccess:
+  layout: layout
+  javascripts: [jquery.masonry.min.js, jquery.myWall.js]
+  stylesheets: [jquery-ui-1.7.1.custom.css]
+
+#### public ####
+publicShowSuccess:
+  layout    : layout_public_bootstrap
+  javascripts: [-*, jquery.new.min.js, jquery.masonry.min.js, jquery.flexslider.js, jquery.infinitescroll.min.js, bootstrap.min.js, tools.min.js, facebox.min.js]
+  stylesheets: [-*,  "https://fonts.googleapis.com/css?family=Lato:400,700", main.css, font-awesome.min.css, jquery.flexslider.css]
+
+authenticationSuccess:
+  layout    : layout_public_bootstrap
+  javascripts: [-*, jquery.new.min.js, bootstrap.min.js, tools.min.js, facebox.min.js]
+  stylesheets: [-*, "https://fonts.googleapis.com/css?family=Lato:400,700", main.css, font-awesome.min.css]

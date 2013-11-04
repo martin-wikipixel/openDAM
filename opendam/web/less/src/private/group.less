@@ -1,0 +1,239 @@
+.groups-container,
+.groups-folders-container {
+	background: @white;
+	margin-bottom: 4px;
+
+	&.margin {
+		margin-top: 20px;
+	}
+
+	h3 {
+		font-size:24px;
+		font-family: @customFontFamilyRegular!important;
+		color: @gray2;
+		padding-left: 10px;
+		font-weight: normal;
+
+		&.pull-right {
+			padding-left: 0px;
+			padding-right: 10px;
+		}
+
+		a {
+			color: @gray2;
+			text-decoration: none;
+			text-shadow: none;
+			padding-bottom: 10px;
+			border: 1px solid transparent;
+
+			&:hover {
+				color: lighten(@gray2, 30%);
+				text-decoration: none;
+			}
+		}
+	}
+
+	.groups-private,
+	.groups-shared,
+	.groups,
+	.groups-folders {
+		&.groups-private,
+		&.groups-shared,
+		&.groups {
+			#groups,
+			#groups-private,
+			#groups-shared {
+				padding-left: 0px!important;
+				padding-right: 0px!important;
+				background: @grayBackBody;
+			}
+
+			.show-more-groups {
+				background: @grayBackBody;
+			}
+		}
+
+		.container {
+			// overflow: hidden;
+
+			#groups-private,
+			#groups-shared,
+			#groups,
+			#groups-folders {
+				padding-left: 10px;
+				padding-right: 10px;
+
+				.loading {
+					text-align: center;
+					color: @blue;
+					font-size: 24px;
+					padding-top: 20px;
+					padding-bottom: 20px;
+				}
+
+				.group,
+				.group-folder {
+					margin-bottom: 10px;
+					display: inline-block;
+					width: 270px;
+
+					.contain {
+						display: block;
+						text-decoration: none;
+						.transition(all .5s);
+
+						/* &:hover {
+							.overlay {
+								display: block;
+							}
+						} */
+
+						/* .overlay {
+							position: absolute;
+							width: auto;
+							background: transparent;
+							z-index: 1;
+							right: 0px;
+							// display: none;
+
+							> .actions {
+								display: block;
+								float: right;
+								// background: @blue;
+								padding-top: 5px;
+								padding-bottom: 5px;
+								text-align: center;
+								margin-top: 10px;
+								margin-right: 15px;
+								color: @white;
+								font-size: 20px!important;
+								.transition(color .25s);
+
+								&:hover {
+									// background-color: darken(@blue, 25%)!important;
+									color: darken(@blue, 25%);
+								}
+
+								> a {
+									color: @white;
+									.transition(color .25s);
+
+									&:hover {
+										color: darken(@blue, 25%);
+									}
+								}
+
+								.dropdown-menu {
+									text-align: left;
+									min-width: 80px;
+									// margin-left: 51px;
+								}
+							}
+						} */
+
+						.thumbnail {
+							text-align: center;
+							background: @black;
+
+							.cropp {
+								position: absolute;
+								top: 0;
+								left: 0;
+							}
+						}
+
+						.info-group,
+						.info-group-folder {
+							border-top: 1px solid #303030;
+							background: @black;
+							color: @white;
+							padding: 15px;
+							.transition(all .5s);
+
+							a {
+								color: @white;
+
+								&:hover {
+									color: @white;
+								}
+							}
+
+							&.edition {
+								line-height: 40px;
+								background: @blue;
+
+								.title {
+									overflow: auto;
+									text-overflow: clip;
+									white-space: normal;
+
+									input {
+										background-color: #FFFFFF;
+										border: 2px solid @errorText;
+										.box-shadow(0 1px 1px rgba(0, 0, 0, 0.075) inset);
+										transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+										color: #555555;
+										font-size: 14px!important;
+										height: 20px!important;
+										line-height: 20px!important;
+										padding: 4px 6px;
+										margin: 0px;
+									}
+
+									.btn {
+										background-image: none;
+										.border-radius(0px);
+										.box-shadow(none);
+
+										&.btn-primary {
+											background: @blue;
+										}
+									}
+								}
+							}
+
+							.title {
+								font-weight: normal;
+								overflow: hidden;
+								text-overflow: ellipsis;
+								white-space: nowrap;
+							}
+
+							.contain-inside {
+								font-family: @customFontFamilyRegular!important;
+
+								.container-dropdown {
+									> a {
+										font-size: 16px;
+										color: @white;
+
+										&:hover {
+											color: darken(@blue, 25%);
+										}
+									}
+								}
+							}
+						}
+
+						&:hover {
+							text-decoration: none;
+							.box-shadow(0px 0px 10px 0px rgba(140, 140, 140, 0.4));
+							.transition(all .5s);
+
+							.info-group,
+							.info-group-folder {
+								background: @blue;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.show-more-groups,
+		.show-more-groups-folders {
+			text-align: center;
+			padding-bottom: 25px;
+		}
+	}
+}

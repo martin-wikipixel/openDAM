@@ -1,0 +1,6 @@
+homeSuccess:
+  layout    : layout
+
+listSuccess:
+  layout: layout
+  javascripts: [jquery.masonry.min.js, jquery.myWall.js]

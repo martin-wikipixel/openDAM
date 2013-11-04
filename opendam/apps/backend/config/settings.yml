@@ -1,0 +1,53 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/04-Settings
+
+prod:
+  .settings:
+    no_script_name:         true
+    logging_enabled:        false
+
+dev:
+  .settings:
+    error_reporting:        <?php echo (E_ALL | E_STRICT)."\n" ?>
+    web_debug:              true
+    cache:                  false
+    no_script_name:         false
+    etag:                   false
+
+test:
+  .settings:
+    error_reporting:        <?php echo ((E_ALL | E_STRICT) ^ E_NOTICE)."\n" ?>
+    cache:                  false
+    web_debug:              false
+    no_script_name:         false
+    etag:                   false
+
+all:
+  .settings:
+    # check_lock: true
+    # Form security secret (CSRF protection)
+    csrf_secret:            QoL83YZU7ue29Nm4M7Dpy9Js6F8zREuEV244cBjbK6Ris827Gf9NH39JAxFt
+
+    # Output escaping settings
+    escaping_strategy:      true
+    escaping_method:        ESC_SPECIALCHARS
+
+    # Enable the database manager
+    use_database:           true
+
+    i18n:                   true
+    default_culture:        fr
+
+    standard_helpers:       [Partial, Cache, Global, JavascriptBase, Tag, Form, I18N, Number]
+
+    enabled_modules:        [chCmsExposeRouting, wpI18n, wpLess]
+
+  .actions:
+    error_404_module:       public
+    error_404_action:       error
+
+    login_module:           user
+    login_action:           login
+
+    secure_module:          user
+    secure_action:          login

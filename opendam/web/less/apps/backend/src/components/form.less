@@ -1,0 +1,27 @@
+// forms
+.control-label.required::after{
+	content: " *";
+	color: @red;
+	font-weight: bold;
+}
+
+.error_list {
+	color: @red;
+}
+
+ul.error_list {
+	list-style: none;
+}
+
+.form-horizontal .error_list, .form-inline .error_list {
+	display: inline-block;
+}
+
+.form-horizontal .controls .text-node {
+	display: block;
+	padding-top: 5px;
+}
+
+.breadcrumb {
+	.border-radius(0);
+}

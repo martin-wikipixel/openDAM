@@ -1,0 +1,12 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout
+
+previewSuccess:
+  layout    : layout
+  javascripts: [apps/backend/lib/video.js]
+  stylesheets: [lib/video-js/video-js.css]
+
+errorSuccess:
+  has_layout: false

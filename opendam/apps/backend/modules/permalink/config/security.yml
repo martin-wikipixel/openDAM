@@ -1,0 +1,8 @@
+download:
+  is_secure: false
+
+preview:
+  is_secure: false
+
+error:
+  is_secure: false

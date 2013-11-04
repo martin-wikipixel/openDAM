@@ -1,0 +1,79 @@
+#explorer-side {
+	@headerHeight: 60px;
+	@bodyHeight: 400px;
+	@footerHeight: 80px;
+	@borderWidth: 1px;
+
+	position: fixed;
+	z-index: 8000;
+	top: 50%;
+	margin-top: (@headerHeight + @bodyHeight + @footerHeight + (@borderWidth * 2)) * -0.5;
+
+	table {
+		td {
+			border: 0px;
+			height: (@headerHeight + @bodyHeight + @footerHeight + (@borderWidth * 2));
+		}
+
+		#explorer-treeview {
+			background: @white;
+			border: @borderWidth solid @blue;
+			overflow: hidden;
+			.transition(all .4s);
+
+			&.collapse {
+				border: 0px;
+				width: 0px;
+			}
+
+			.title-tree {
+				background: @blue;
+				height: @headerHeight;
+	
+				h3 {
+					margin-left: 25px;
+					color: @white;
+				}
+			}
+	
+			.content-tree {
+				@paddingTop: 25px;
+	
+				padding-top: @paddingTop;
+				overflow: auto;
+				height: @bodyHeight - @paddingTop;
+	
+				ul {
+					list-style-type: none;
+	
+					li {
+						a {
+							color: @gray2;
+	
+							&:hover {
+								color: @blue;
+							}
+						}
+					}
+				}
+			}
+	
+			.info-tree {
+				p {
+					@paddingTop: 15px;
+
+					border-top: 1px solid @blue;
+					margin: 0px;
+					padding-left: 15px;
+					padding-right: 15px;
+					padding-top: @paddingTop;
+					height: @footerHeight - @paddingTop;
+	
+					strong {
+						color: @blue;
+					}
+				}
+			}
+		}
+	}
+}

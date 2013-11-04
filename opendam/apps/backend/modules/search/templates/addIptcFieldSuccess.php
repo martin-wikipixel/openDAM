@@ -1,0 +1,1 @@
+<?php include_partial("search/searchIptcField", array("selected" => null, "index" => $index)); ?>

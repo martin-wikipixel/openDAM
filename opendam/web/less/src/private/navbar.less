@@ -1,0 +1,72 @@
+@navTopBarHeight: 51px;
+
+.navbar {
+	.nav {
+		> li {
+			&.container-dropdown {
+				.dropdown-menu {
+					margin-top: -5px;
+
+					> li {
+						&.product {
+							font-size: 12px;
+							color: @gray2;
+
+							#product_bar {
+								@width: 260px;
+
+								color: @gray2!important;
+								margin-top: 0px;
+								margin-bottom: 0px;
+								float: none;
+								padding: 0px 20px;
+								width: @width;
+
+								> div {
+									text-align: center;
+									margin-bottom: 5px;
+								}
+
+								#space {
+									@borderWidth: 1px;
+
+									float: none;
+									margin-left: 0px;
+									width: @width - (@borderWidth * 2);
+
+									.gauge {
+										width: @width - (@borderWidth * 2);
+									}
+								}
+							}
+
+							.label-renew {
+								font-size: 12px;
+								margin-top: 0px;
+								margin-bottom: 0px;
+								padding: 0px 20px;
+								text-align: center;
+
+								a {
+									color: @white!important;
+									margin-top: 5px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		li {
+			a {
+				font-family: @customFontFamilyRegular!important;
+			}
+		}
+	}
+}
+
+.input-append,
+.input-prepend {
+	margin-bottom:0;
+}

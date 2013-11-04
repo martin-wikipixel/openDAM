@@ -1,0 +1,74 @@
+/*
+.btn {
+	background-color: @blue;
+	border: 0;
+	background-image: none;
+	color: @white;
+	text-shadow: none;
+	box-shadow: none;
+	border-radius: 2px;
+
+	&:hover {
+		color: white;
+		background-color: @blueDark;
+	}
+}
+
+.btn-success:hover, 
+.btn-success:active, 
+.btn-success.active, 
+.btn-success.disabled, 
+.btn-success[disabled] {
+	color: @white;
+	background-color: rgb(0,120,255);
+}
+
+.btn-success {
+	color: @white;
+	background-color: @blue;
+
+	background-image: none;
+	border: 0;
+	border-radius: 2px;
+	border-color: rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+	filter:none;
+}
+*/
+
+// Set the backgrounds
+// -------------------------
+.btn {
+	.border-radius(0);
+	background-image: none;// supprime le dégradés
+	.box-shadow(none);
+	//border: none;
+}
+
+.btn-primary {
+	//.buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+		background-color: @blue;
+}
+// Warning appears are orange
+.btn-warning {
+	//.buttonBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+	background-color: @btnWarningBackground;
+}
+// Danger and error appear as red
+.btn-danger {
+	//.buttonBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+	background-color: @btnDangerBackground;
+}
+// Success appears as green
+.btn-success {
+	//.buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+	background-color: @btnSuccessBackground;
+}
+// Info appears as a neutral blue
+.btn-info {
+	//.buttonBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+	background-color: @btnInfoBackground;
+}
+// Inverse appears as dark gray
+.btn-inverse {
+	.buttonBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+}

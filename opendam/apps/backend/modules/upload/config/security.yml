@@ -1,0 +1,5 @@
+uploadFile:
+  is_secure: false
+
+mergeFile:
+  is_secure: false

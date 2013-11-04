@@ -1,0 +1,1 @@
+<?php include_partial("file/folders", array("group_id"=>$sf_params->get("group_id"), "folder_id"=>$sf_params->get("folder_id")));?>

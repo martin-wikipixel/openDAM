@@ -1,0 +1,3 @@
+wpI18n_calalogues: 
+  url:   /wpI18n/catalogues.js
+  param: { module: wpI18n, action: catalogues }

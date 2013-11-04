@@ -1,0 +1,2 @@
+<?php $options = FolderPeer::getAllPathFolder($sf_params->get("group_id"))?>
+<?php echo select_tag('folder_id', options_for_select($options, '', array('include_custom' => __("Root's folder group"))), array("style"=>"float:left; width:279px;")) ?>

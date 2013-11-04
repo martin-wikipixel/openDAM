@@ -1,0 +1,5 @@
+forgotPassword: 
+  is_secure: false
+
+resetPassword:
+  is_secure: false

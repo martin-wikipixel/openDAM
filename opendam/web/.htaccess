@@ -1,0 +1,126 @@
+Options +FollowSymLinks +ExecCGI
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # uncomment the following line, if you are having trouble
+  # getting no_script_name to work
+  # RewriteBase /
+
+  # we skip all files with .something
+  #RewriteCond %{REQUEST_URI} \..+$
+  #RewriteCond %{REQUEST_URI} !\.html$
+  #RewriteRule .* - [L]
+
+    
+  # we check if the .html version is here (caching)
+  RewriteRule ^$ index.html [QSA]
+  RewriteRule ^([^.]+)$ $1.html [QSA]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  
+  # no, so we redirect to our front web controller
+  RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+
+# ----------------------------------------------------------------------
+# security header
+# ----------------------------------------------------------------------
+<ifModule mod_headers.c>
+	# frame protection (https://developer.mozilla.org/en-US/docs/HTTP/X-Frame-Options)
+	Header set X-Frame-Options SAMEORIGIN
+
+	# XSS protection for ie
+	Header set X-XSS-Protection "1; mode=block"
+	
+	# man in the middle protection (http://fr.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
+	Header set Strict-Transport-Security "max-age=2592000"
+</ifModule>
+
+# ----------------------------------------------------------------------
+# ETag removal
+# ----------------------------------------------------------------------
+<ifModule mod_headers.c>
+	Header unset ETag
+	
+	# bug symfony qui inclut toujours ces headers
+	Header unset Expires
+	Header unset Pragma
+</ifModule>
+
+FileETag None
+
+# ----------------------------------------------------------------------
+# Gzip compression
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+	# Force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+	<IfModule mod_setenvif.c>
+		<IfModule mod_headers.c>
+			SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s*,?\s*)+|[X~-]{4,13}$ HAVE_Accept-Encoding
+			RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+		</IfModule>
+	</IfModule>
+
+	# Compress all output labeled with one of the following MIME-types
+	# (for Apache versions below 2.3.7, you don't need to enable `mod_filter`
+	# and can remove the `<IfModule mod_filter.c>` and `</IfModule>` lines as
+	# `AddOutputFilterByType` is still in the core directives)
+	<IfModule mod_filter.c>
+	AddOutputFilterByType DEFLATE application/atom+xml \
+		application/javascript \
+		application/json \
+		application/rss+xml \
+		application/vnd.ms-fontobject \
+		application/x-font-ttf \
+		application/xhtml+xml \
+		application/xml \
+		font/opentype \
+		image/svg+xml \
+		image/x-icon \
+		text/css \
+		text/html \
+		text/plain \
+		text/x-component \
+		text/xml
+	</IfModule>
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Expires headers 
+# ----------------------------------------------------------------------
+# gestion du cache avancee (HTTP/1.1)
+<IfModule mod_headers.c>
+	# Media: images
+#	<FilesMatch "\\.(gif|jpeg|jpg|png)$">
+#		Header set Cache-Control "max-age=604800, public, no-transform"
+#	</FilesMatch>
+
+	# Favicon (cannot be renamed)
+	<FilesMatch "\\.(ico)$">
+		# 1 week
+		Header set Cache-Control "max-age=604800, public, no-transform"
+	</FilesMatch>
+
+	# Webfonts
+	<FilesMatch "\\.(eot|ttf|woff|otf)$">
+		# 1 month
+		Header set Cache-Control "max-age=2592000, public, no-transform"
+	</FilesMatch>
+	
+	# CSS and JavaScript
+#	<FilesMatch "\\.(js|css)$">
+#		# 1 month
+#		Header set Cache-Control "max-age=2592000, public, no-transform"
+#	</FilesMatch>
+
+	# cache des fichiers production css et js
+	<FilesMatch "main-prod.(js|css)$">
+		# 1 month
+		Header set Cache-Control "max-age=2592000, public, no-transform"
+	</FilesMatch>
+	
+	<FilesMatch "(topbar-noise.jpg|explorer_fr.gif|logo-wikipixel.png)$">
+		# 1 week
+		Header set Cache-Control "max-age=604800, public, no-transform"
+	</FilesMatch>
+</IfModule>

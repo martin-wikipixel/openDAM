@@ -1,0 +1,1 @@
+<?php include_partial("rate/rate", array("file_id" => $file_id));?>

@@ -1,0 +1,45 @@
+.search-block {
+	margin-top: 10px;
+	background-color: #F6F6F6;
+	padding: 10px 15px;
+
+	/* 
+	.filters {
+		.active, .selected {
+			font-weight: bold;
+			color: #005580;
+		}
+	}*/
+
+	.form-search {
+		margin-bottom: 0px;
+	}
+}
+
+ul.filter {
+	list-style-type: none;
+	margin: 0 0 @baseLineHeight/4;
+	
+	&:last-child {
+		margin: 0;
+	}
+	
+	li {
+		&:first-child {
+			padding-left: 0;
+		}
+		
+		&:last-child {
+			padding-right: 0;
+		}
+		
+		display: inline-block;
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+	
+	.active, .selected {
+		font-weight: bold;
+		color: #005580;
+	}
+}

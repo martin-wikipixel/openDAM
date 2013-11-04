@@ -1,0 +1,23 @@
+#### developpement ####
+dev:
+  wpI18n: 
+    use_cache: false
+
+  wpLess: 
+    use_cache: false
+    minify: false
+
+#### production ####
+prod:
+  wpI18n: 
+    use_cache: true
+
+  wpLess: 
+    use_cache: true
+    minify: true
+
+#### global ####
+all:
+  # beaucoup de version php ne supporte pas l'utf-8 lors de la création de zip
+  zip: 
+    convert_iso_8859_1: true

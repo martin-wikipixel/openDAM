@@ -1,0 +1,17 @@
+replaceProcess:
+  is_secure: false
+  
+card:
+  is_secure: false
+
+video:
+  is_secure: false
+
+viewDocument:
+  is_secure: false
+
+navFile:
+  is_secure: false
+
+thumbnail:
+  is_secure: false

@@ -1,0 +1,85 @@
+.comments-container {
+	position: absolute;
+	@paddingLeft: 15px;
+
+	.comments {
+		background: @white;
+		margin-bottom: 10px;
+
+		.title {
+			border-bottom: 1px solid @grayFolders;
+			padding-top: 10px;
+
+			h1 {
+				font-weight: normal;
+				color: @gray;
+				padding-left: @paddingLeft;
+				font-size: 34px;
+			}
+		}
+
+		.posts {
+			padding-left: @paddingLeft;
+
+			.post {
+				padding-bottom: 15px;
+				font-size: 12px;
+
+				&:first-child {
+					padding-top: 15px;
+				}
+
+				.author {
+					font-weight: bold;
+					color: @gray;
+				}
+
+				.posting-date {
+					color: @grayFolders;
+					font-size: 11px;
+					margin-left: 5px;
+				}
+
+				.post-text {
+					color: @gray;
+				}
+			}
+		}
+
+		.add-post-label {
+			background: @grayBackBody;
+			padding: 25px @paddingLeft;
+			.box-shadow(inset 0px 0px 10px 2px @grayFolders);
+
+			a {
+				color: @gray;
+				text-decoration: none;
+
+				&:hover {
+					color: @blue;
+					text-decoration: none;
+				}
+			}
+		}
+
+		.add-post {
+			display: none;
+			padding: 15px @paddingLeft;
+
+			.form-horizontal {
+				.controls {
+					margin-left: 0px;
+				}
+
+				.control-button {
+					margin-bottom: 0px;
+				}
+
+				.submit {
+					float: right;
+					margin-bottom: 10px;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout
+
+listSuccess:
+  javascripts: [jquery.jstree.min.js]
+  stylesheets: [jquery.jstree.css]

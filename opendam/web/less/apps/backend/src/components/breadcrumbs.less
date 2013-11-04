@@ -1,0 +1,57 @@
+.breadcrumb {
+	@gray2: @gray;
+	
+	list-style: none outside none;
+	margin: 0;
+
+	margin-top: @baseLineHeight;
+	margin-bottom: @baseLineHeight;
+
+	> li {
+		display: inline-block;
+		font-size: 34px!important;
+		line-height: 30px;
+		font-family: @customFontFamilyRegular!important;
+
+		> a {
+			color: @gray2;
+			text-decoration: none;
+			text-shadow: none;
+
+			&:hover {
+				color: lighten(@gray2, 30%);
+				text-decoration: none;
+			}
+		}
+
+		> .divider {
+			font-size: 30px!important;
+			color: @gray2;
+		}
+	}
+
+	> .active {
+		color: @blue;
+
+		a {
+			color: @blue;
+			text-decoration: none;
+			text-shadow: none;
+
+			&:hover {
+				color: darken(@blue, 30%);
+				text-decoration: none;
+
+				.divider {
+					color: darken(@blue, 30%);
+					padding: 0 5px;
+				}
+			}
+
+			.divider {
+				color: @blue;
+				padding: 0 5px;
+			}
+		}
+	}
+}

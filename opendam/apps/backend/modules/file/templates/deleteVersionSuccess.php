@@ -1,0 +1,1 @@
+<?php include_partial('file/history', array("file"=>$file)); ?>

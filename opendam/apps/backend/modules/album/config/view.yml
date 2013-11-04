@@ -1,0 +1,19 @@
+default:
+  layout: layout_v2
+
+testSuccess: 
+  layout: layout
+
+listSuccess:
+  javascripts: [jquery.masonry.min.js, apps/backend/src/modules/album/list.js]
+
+sharedListSuccess:
+  javascripts: [jquery.masonry.min.js, apps/backend/src/modules/album/sharedList.js]
+
+
+# gestion des droits
+rightUserListSuccess: 
+  javascripts: [apps/backend/src/modules/album/rightUserList.js]
+
+rightGroupListSuccess:
+  javascripts: [apps/backend/src/modules/album/rightGroupList.js]

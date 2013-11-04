@@ -1,0 +1,1 @@
+<li><a href="javascript: void(0);"><i class="icon-star-empty"></i> <?php echo __("Remove from favorites"); ?></a></li>

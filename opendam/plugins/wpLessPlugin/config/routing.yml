@@ -1,0 +1,3 @@
+less_index: 
+  url:   /less/app.css
+  param: { module: wpLess, action: index }

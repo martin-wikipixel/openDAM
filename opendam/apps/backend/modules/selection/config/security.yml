@@ -1,0 +1,20 @@
+default: 
+  is_secure: true
+
+publicCommentList:
+  is_secure: false
+  
+publicCommentAdd:
+  is_secure: false
+
+publicSlideshow:
+  is_secure: false
+  
+publicShow:
+  is_secure: false
+  
+publicAuthentication:
+  is_secure: false
+  
+publicFileDownload: 
+  is_secure: false

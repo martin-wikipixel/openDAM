@@ -1,0 +1,5 @@
+downloadFile: 
+  is_secure: false
+
+errorPublic:
+  is_secure: false

@@ -1,0 +1,249 @@
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+
+	&.no-padding {
+		padding: 0px;
+	}
+}
+
+.table {
+	background-color: #FFF;
+}
+
+.dropdown-menu {
+	.border-radius(0)!important;
+	margin-top: 0;
+
+	> li {
+		> a {
+			color: #505050;
+		}
+	}
+}
+
+.navbar-inner {
+	.nav-collapse {
+		//float:left;
+	}
+	
+	.nav {
+		margin-right: 5px;
+
+		> li > a {
+			padding: 10px;
+			line-height: 30px;
+			
+			&:hover {
+				color: @blue;
+			}
+		}
+
+		> .active {
+			border-bottom: 3px solid @blue;
+			border-left: 1px solid @black;
+			border-right: 1px solid @black;
+
+			> a {
+				background: transparent;
+				color: @grayLight;
+
+				&:hover {
+					background: transparent;
+					color: @blue;
+				}
+
+				&:focus {
+					background: transparent;
+					color: @grayLight;
+				}
+			}
+		}
+	}
+
+	/*
+	li.product {
+		color: #505050;
+		font-size: 12px;
+	
+		.product-container {
+			color: #505050 !important;
+			padding: 0 20px;
+			width: 260px;
+		}
+		
+		.progress {
+			margin-bottom: @baseLineHeight/2;
+		}
+		.actions {
+			text-align: center;
+		}
+	}*/
+}
+
+.navbar-inverse {
+	.navbar-inner {
+		background: url("/images/bootstrap/layout/topbar-noise.jpg") repeat scroll center center #000000;
+	}
+}
+
+#footer {
+	border-top: 1px solid #D2D2D2;
+	margin-top: @baseLineHeight;
+	padding-top: @baseLineHeight/3;
+
+	a {
+		text-decoration: none;
+		color: @gray;
+	}
+	
+	.separator {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+} 
+
+
+// recherche
+#top_search_form {
+	margin-right: 10px;
+	margin-top: 12px;
+
+	.search-query {
+		background: none repeat scroll 0 0 #FFFFFF;
+		border: 0 none;
+		box-shadow: none;
+		color: #8C8C8C;
+		display: inline-block;
+		font-size: 14px !important;
+		height: 20px !important;
+		margin-top: 0;
+		padding: 5px 0 5px 5px;
+		// transition: all 0.35s ease 0s;
+		width: 150px;
+		.border-radius(0);
+
+		&.focused {
+			background: none repeat scroll 0 0 #FFFFFF;
+			border: 0 none;
+			box-shadow: none;
+			color: @gray;
+			display: inline-block;
+			font-size: 14px !important;
+			height: 20px !important;
+			margin-top: 0;
+			padding: 5px 0 5px 5px;
+			text-shadow: none;
+			width: 130px;
+		}
+	}
+}
+
+/*
+.navbar-inverse .navbar-text {
+  color: #8c8c8c;
+  margin-top: 2px;
+  display: inline-block;
+}
+.navbar-inverse .navbar-text span {
+  padding-bottom: 5px;
+  border-bottom: 4px solid #288cff;
+}
+.navbar-inverse .navbar-search {
+  margin-right: 10px;
+  margin-top: 12px;
+}*/
+
+.navbar-inverse .navbar-search .btn-actions {
+	display: none;
+	.transition(all 0.35s);
+
+	.btn-group {
+		color: @white;
+		border-right: 1px solid @white !important;
+		display: inline-block;
+		position: relative;
+		
+		.btn .icon-caret-down {
+			margin-left: 5px;
+		}
+		.btn #search_type_selected i {
+			margin-right: 4px;
+		}
+		
+		.dropdown-menu li a:focus {
+			background: @white !important;
+			color: @gray !important;
+		}
+		
+		.dropdown-menu li a:hover {
+			background: @blue !important;
+			color: @white !important;
+		}
+		
+		.dropdown-menu li a.selected {
+			color: @blue !important;
+			
+			&:focus {
+				background: @white !important;
+				color: @blue !important;
+			}
+			&:hover {
+				background: @blue !important;
+				color: @white !important;
+			}
+		}
+
+		.dropdown-menu li a .content {
+			display: inline-block;
+			width: 50%;
+		}
+		
+		.dropdown-menu li a .selected-search-type {
+			display: inline-block;
+			text-align: right;
+			width: 50%;
+		}
+	}
+
+	.btn {
+		background-image: none;
+		border: 1px solid @blue;
+		text-shadow: none!important;
+		color: @white;
+		background: @blue;
+		-webkit-box-shadow: none;
+		-moz-box-shadow: none;
+		box-shadow: none;
+		
+		.border-radius(0);
+	
+		&#submit_search {
+			display: inline-block;
+		}
+	}
+}
+
+.ui-autocomplete {
+	z-index: @zindexModal + 1!important;
+}
+
+.ui-dialog {
+	z-index: @zindexModal + 1!important;
+}
+
+.container-dropdown {
+	&:hover {
+		> .dropdown-menu {
+			display: block;
+		}
+	}
+}
+
+#start-togetherjs {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	font-size: 24px;
+	padding: 10px;
+}

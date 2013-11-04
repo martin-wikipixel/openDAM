@@ -1,0 +1,1 @@
+<img src="<?php echo path("@file_thumbnail", array("id" => $file->getId(), "format" => "web")); ?>" />

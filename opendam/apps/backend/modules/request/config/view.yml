@@ -1,0 +1,4 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout

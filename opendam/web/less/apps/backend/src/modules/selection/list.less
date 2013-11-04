@@ -1,0 +1,31 @@
+#selection-list-page {
+	.breadcrumb {
+		> li {
+			&.home-bread {
+				margin-right: 50px;
+
+				&:last-child {
+					margin-right: 0px;
+				}
+
+				> a {
+					color: @grayLight;
+	
+					&:hover {
+						color: @gray;
+					}
+				}
+	
+				&.active {
+					> a {
+						color: @blue;
+	
+						&:hover {
+							color: @blueDark;
+						}
+					}
+				}
+			}
+		}
+	}
+}

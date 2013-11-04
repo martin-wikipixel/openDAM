@@ -1,0 +1,8 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout
+
+uploadifySuccess:
+  layout    : frameLayout_v2
+  javascripts: [apps/backend/src/modules/upload/uploadify.js]

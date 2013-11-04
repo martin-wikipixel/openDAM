@@ -1,0 +1,62 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout
+
+#### no layout ####
+getSubfoldersSuccess:
+  has_layout: false
+
+thumbnailUploadSuccess:
+  has_layout: false
+
+slideshowPublicSuccess:
+  has_layout: false
+
+#### frameLayout ####
+editSuccess:
+  javascripts: [jquery.editable.min.js, jquery.timepicker.min.js]
+
+defaultSuccess:
+  javascripts: [jquery.timepicker.min.js, jquery.treeview.file.min.js, jquery.treeview.file.edit.min.js, jquery.treeview.file.async.min.js]
+  stylesheets: 
+    - jquery.treeview.css
+    - leaflet/leaflet.css
+    - leaflet/leaflet.ie.css: { condition: lte IE 8 }
+
+recursiveSuccess:
+  javascripts: [jquery.timepicker.min.js, jquery.treeview.file.min.js, jquery.treeview.file.edit.min.js, jquery.treeview.file.async.min.js]
+  stylesheets: 
+    - jquery.treeview.css
+    - leaflet/leaflet.css
+    - leaflet/leaflet.ie.css: { condition: lte IE 8 }
+
+inviteUsersSuccess:
+  javascripts: [jquery.tagit.min.js, jquery.timepicker.min.js]
+  stylesheets: [jquery.tagit.css]
+
+#### layout ####
+showSuccess: 
+  layout: layout
+  javascripts: [jquery.masonry.min.js, jquery.slimscroll.js, jquery.infinitescroll.min.js, jquery.myWall.js]
+
+
+#### public ####
+publicShowSuccess:
+  layout    : layout_public_bootstrap
+  javascripts: [-*, jquery.new.min.js, jquery.masonry.min.js, jquery.flexslider.js, jquery.infinitescroll.min.js, bootstrap.min.js, tools.min.js, facebox.min.js]
+  stylesheets: [-*,  "https://fonts.googleapis.com/css?family=Lato:400,700", main.css, font-awesome.min.css, jquery.flexslider.css]
+
+authenticationSuccess:
+  layout    : layout_public_bootstrap
+  javascripts: [-*, jquery.new.min.js, bootstrap.min.js, tools.min.js, facebox.min.js]
+  stylesheets: [-*, "https://fonts.googleapis.com/css?family=Lato:400,700", main.css, font-awesome.min.css]
+
+#### frameLayout_v2 ####
+rightUserListSuccess: 
+  layout: frameLayout_v2
+  javascripts: [apps/backend/src/modules/folder/rightUserList.js]
+
+rightGroupListSuccess: 
+  layout: frameLayout_v2
+  javascripts: [apps/backend/src/modules/folder/rightGroupList.js]

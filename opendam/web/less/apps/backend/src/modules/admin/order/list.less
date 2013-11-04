@@ -1,0 +1,79 @@
+#admin-order-list-page {
+	.payment-modal {
+		width: 700px;
+		margin-left: -340px;
+
+		.modal-body {
+			min-height: 500px;
+		}
+	}
+}
+
+.payment-card {
+	border: 1px solid @gray;
+	margin-bottom: 20px;
+	background: @white;
+
+	.title {
+		background: @blue;
+		padding: 15px;
+		font-size: 14px;
+		color: @white;
+	}
+
+	.content {
+		padding: 0px 10px;
+
+		.head {
+			margin-top: 10px;
+			margin-bottom: 15px;
+
+			img {
+			margin-left: 8px;
+			}
+		}
+
+		.block-card {
+			margin-bottom: 20px;
+
+			&.inline {
+				display: inline-block;
+				vertical-align: middle;
+
+				&.next {
+					margin-left: 20px;
+				}
+			}
+
+			label {
+				span {
+					color: @blue;
+					font-size: 11px;
+					margin-left: 10px;
+				}
+			}
+
+			.divider {
+				float: left;
+				margin-left: 5px;
+				margin-right: 5px;
+				line-height: 28px;
+				font-size: 16px;
+			}
+
+			.blank {
+				border-color: #9D261D!important;
+				background: #FFD2CF!important;
+			}
+		}
+	}
+
+	.footer-payment {
+		margin-top: 20px;
+		background: #E6E6E6;
+		text-align: center;
+		padding-top: 15px;
+		padding-bottom: 15px;
+		color: @blue;
+	}
+}

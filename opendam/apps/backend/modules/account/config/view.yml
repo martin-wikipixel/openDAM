@@ -1,0 +1,29 @@
+default:
+  layout: layout_v2
+
+indexSuccess: 
+  javascripts: [apps/backend/src/modules/account/index.js]
+
+moduleListSuccess: 
+  javascripts: [apps/backend/src/modules/account/moduleList.js]
+
+permalinkListSuccess: 
+  javascripts: [apps/backend/src/modules/account/permalinkList.js]
+
+permalinkAlbumListSuccess: 
+  javascripts: [apps/backend/src/modules/account/permalinkAlbumList.js]
+  
+permalinkFolderListSuccess: 
+  javascripts: [apps/backend/src/modules/account/permalinkFolderList.js]
+
+permalinkFileListSuccess: 
+  javascripts: [apps/backend/src/modules/account/permalinkFileList.js]
+
+# public
+forgotPasswordSuccess: 
+  layout: layout
+  stylesheets: [module/user/password.css]
+
+resetPasswordSuccess:
+  layout: layout
+  stylesheets: [module/user/password.css]

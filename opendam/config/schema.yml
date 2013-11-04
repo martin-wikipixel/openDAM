@@ -1,0 +1,2689 @@
+propel: 
+  _attributes: 
+    defaultIdMethod: native
+  customer:
+    id:
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    company:
+      type: VARCHAR
+      size: 255
+      required: false
+    name:
+      type: VARCHAR
+      size: 255
+      required: false
+    first_name:
+      type: VARCHAR
+      size: 255
+      required: false
+    email:
+      type: VARCHAR
+      size: 255
+      required: false
+    address:
+      type: VARCHAR
+      size: 255
+      required: false
+    address_bis:
+      type: VARCHAR
+      size: 255
+      required: false
+    zip:
+      type: VARCHAR
+      size: 255
+      required: false
+    city:
+      type: VARCHAR
+      size: 255
+      required: false
+    country_id:
+      type: INTEGER
+      required: true
+      foreignTable: country
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    phone:
+      type: VARCHAR
+      size: 255
+      required: false
+    mobile:
+      type: VARCHAR
+      size: 255
+      required: false
+    fax:
+      type: VARCHAR
+      size: 255
+      required: false
+    siret:
+      type: VARCHAR
+      size: 255
+      required: false
+    ape:
+      type: VARCHAR
+      size: 255
+      required: false
+    tva:
+      type: VARCHAR
+      size: 255
+      required: false
+    created_at:
+      type: TIMESTAMP
+      required: true
+    state:
+      type: integer
+      required: true
+    activated_at:
+      type: TIMESTAMP
+      required: false
+    _indexes: 
+      country_id: 
+        - country_id
+
+  comment: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    file_id: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    content: 
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      user_id: 
+        - user_id
+      file_id: 
+        - file_id
+
+  configuration: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    type: 
+      type: VARCHAR
+      size: 255
+      required: true
+    value: 
+      type: VARCHAR
+      size: 255
+      required: true
+      description: 0-illimité
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  consumer_log: 
+    year: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+    month: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+    active_users: 
+      type: INTEGER
+      required: true
+    total_users: 
+      type: INTEGER
+      required: true
+    disk_space: 
+      type: BIGINT
+      required: true
+
+  consumer_log_criteria: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    file_upload: 
+      type: TINYINT
+      required: true
+    file_print: 
+      type: TINYINT
+      required: true
+    file_download: 
+      type: TINYINT
+      required: true
+    file_retouch: 
+      type: TINYINT
+      required: true
+    create_folder: 
+      type: TINYINT
+      required: true
+    create_group: 
+      type: TINYINT
+      required: true
+    send_file: 
+      type: TINYINT
+      required: true
+    create_permalink: 
+      type: TINYINT
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  favorites: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    object_id: 
+      type: INTEGER
+      required: true
+    object_type: 
+      type: TINYINT
+      required: true
+      description: 1-folder, 2-file
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      media_id: 
+        - object_id
+      user_id: 
+        - user_id
+
+  field: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    groupe_id: 
+      type: INTEGER
+      required: true
+      foreignTable: groupe
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    type: 
+      type: INTEGER
+      required: true
+    name: 
+      type: VARCHAR
+      size: 255
+      required: true
+    values: 
+      type: LONGVARCHAR
+      required: false
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      groupe_id: 
+        - groupe_id
+
+  field_content: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    field_id: 
+      type: INTEGER
+      required: true
+      foreignTable: field
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    object_id: 
+      type: INTEGER
+      required: true
+    object_type: 
+      type: INTEGER
+      required: true
+      description: 1-folder, 2-file
+    value: 
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      field_id: 
+        - field_id
+
+  file: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    type: 
+      type: INTEGER
+      required: true
+      description: 1-photo, 2-audio, 3-video
+    name: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description: 
+      type: LONGVARCHAR
+      required: true
+    original: 
+      type: VARCHAR
+      size: 255
+      required: true
+    web: 
+      type: VARCHAR
+      size: 255
+      required: true
+    thumb200: 
+      type: VARCHAR
+      size: 255
+      required: true
+    thumb100: 
+      type: VARCHAR
+      size: 255
+      required: true
+    extention: 
+      type: VARCHAR
+      size: 255
+      required: true
+    size: 
+      type: DOUBLE
+      required: true
+      description: KB
+    folder_cover: 
+      type: TINYINT
+      required: true
+    lat: 
+      type: VARCHAR
+      size: 255
+      required: true
+    lng: 
+      type: VARCHAR
+      size: 255
+      required: true
+    average_point: 
+      type: DOUBLE
+      required: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    groupe_id: 
+      type: INTEGER
+      required: true
+      foreignTable: groupe
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    folder_id: 
+      type: INTEGER
+      required: true
+      foreignTable: folder
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    main_color: 
+      type: VARCHAR
+      size: 255
+    state: 
+      type: INTEGER
+      required: true
+    updated_at: 
+      type: TIMESTAMP
+      required: true
+    disk_id: 
+      type: INTEGER
+      required: true
+      foreignTable: disk
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    source: 
+      type: VARCHAR
+      size: 255
+      required: false
+    licence_id: 
+      type: INTEGER
+      required: false
+      foreignTable: licence
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    usage_distribution_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_distribution
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_constraint_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_constraint
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_use_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_use
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_commercial_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_commercial
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    creative_commons_id:
+      type: INTEGER
+      required: false
+      foreignTable: creative_commons
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    width: 
+      type: INTEGER
+      required: false
+    height: 
+      type: INTEGER
+      required: false
+    checksum: 
+      type: VARCHAR
+      size: 255
+      required: true
+    thumb_mob: 
+      type: VARCHAR
+      size: 255
+      required: false
+    thumb_mob_w: 
+      type: VARCHAR
+      size: 255
+      required: false
+    thumb_tab: 
+      type: VARCHAR
+      size: 255
+      required: false
+    thumb_tab_w: 
+      type: VARCHAR
+      size: 255
+      required: false
+    groupe_cover: 
+      type: TINYINT
+      required: true
+    thumb400: 
+      type: VARCHAR
+      size: 255
+      required: false
+    thumb400_w: 
+      type: VARCHAR
+      size: 255
+      required: false
+    _indexes: 
+      user_id: 
+        - user_id
+      group_id: 
+        - groupe_id
+      folder_id: 
+        - folder_id
+      created_at: 
+        - created_at
+      disk_id: 
+        - disk_id
+      licence_id: 
+        - licence_id
+      usage_distribution_id: 
+        - usage_distribution_id
+      usage_constraint_id: 
+        - usage_constraint_id
+      usage_use_id: 
+        - usage_use_id
+      usage_commercial_id: 
+        - usage_commercial_id
+      creative_commons_id: 
+        - creative_commons_id
+
+  file_tag: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    file_id: 
+      type: INTEGER
+      required: true
+    tag_id: 
+      type: INTEGER
+      required: true
+      foreignTable: tag
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    type: 
+      type: VARCHAR
+      size: 255
+      required: true
+      description: 1-group, 2-folder, 3-file
+    _indexes: 
+      tag_id: 
+        - tag_id
+
+  file_tmp: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    file_id: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    folder_id: 
+      type: INTEGER
+      required: true
+      foreignTable: folder
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      file_id: 
+        - file_id
+      user_id: 
+        - user_id
+      folder_id: 
+        - folder_id
+
+  folder: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    name: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description: 
+      type: LONGVARCHAR
+      required: true
+    lat: 
+      type: VARCHAR
+      size: 255
+      required: true
+    lng: 
+      type: VARCHAR
+      size: 255
+      required: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    groupe_id: 
+      type: INTEGER
+      required: true
+      foreignTable: groupe
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    subfolder_id: 
+      type: INTEGER
+      required: false
+      default: null
+      foreignTable: folder
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    state: 
+      type: INTEGER
+      required: true
+      default: 1
+    licence_id: 
+      type: INTEGER
+      required: false
+      foreignTable: licence
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    usage_distribution_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_distribution
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_constraint_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_constraint
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_use_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_use
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_commercial_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_commercial
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    creative_commons_id:
+      type: INTEGER
+      required: false
+      foreignTable: creative_commons
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    free: 
+      type: boolean
+      required: true
+    thumbnail: 
+      type: VARCHAR
+      size: 255
+      required: false
+    disk_id:
+      type: INTEGER
+      required: false
+      foreignTable: disk
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    _indexes: 
+      group_id: 
+        - groupe_id
+      user_id: 
+        - user_id
+      created_at: 
+        - created_at
+      subfolder_id:
+        - subfolder_id
+      usage_distribution_id:
+        - usage_distribution_id
+      usage_constraint_id:
+        - usage_constraint_id
+      usage_use_id:
+        - usage_use_id
+      licence_id:
+        - licence_id
+      usage_commercial_id:
+        - usage_commercial_id
+      creative_commons_id:
+        - creative_commons_id
+      disk_id:
+        - disk_id
+
+  groupe: 
+    _attributes:      { phpName: Groupe }
+    id:               { type: INTEGER, primaryKey: true, required: true, autoIncrement: true }
+    name:             { type: VARCHAR, size: 255, required: true }
+    description:      { type: LONGVARCHAR, required: true }
+    thumbnail:        { type: VARCHAR, size: 255, required: true }
+    user_id:          { type: INTEGER, required: true, foreignTable: user, foreignReference: id, onDelete: cascade, onUpdate: cascade } 
+    customer_id:      { type: INTEGER, required: true, foreignTable: customer, foreignReference: id, onDelete: cascade, onUpdate: cascade}
+    free:             { type: boolean, required: true}
+    disk_id:          { type: INTEGER, required: true, foreignTable: disk, foreignReference: id, onDelete: set null, onUpdate: set null }
+    created_at:       { type: TIMESTAMP,required: true}
+    state:            { type: INTEGER,required: true}
+    type:             { type: INTEGER,required: true}
+    free_credential:  { type: INTEGER,required: true,foreignTable: role,foreignReference: id,onDelete: set null,onUpdate: set null}
+    url:              { type: VARCHAR, size: 255, required: false}
+    logo:             { type: VARCHAR, size: 255, required: false}
+    _indexes:         { user_id: [user_id], disk_id: [disk_id], customer_id: [customer_id], created_at: [created_at], free_credential: [free_credential], business_unit_id: [business_unit_id] }
+
+  log:
+    _attributes:
+      isI18N: true
+      i18nTable: log_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id: 
+      type: INTEGER
+      required: false
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    type: 
+      type: TINYINT
+      required: true
+    object_id: 
+      type: INTEGER
+      required: true
+    log_type: 
+      type: VARCHAR
+      size: 255
+      required: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    ids:
+      type: LONGVARCHAR
+      required: true
+    _indexes: 
+      user_id: 
+        - user_id
+      customer_id: 
+        - customer_id
+
+  permalink: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    type: 
+      type: INTEGER
+      required: true
+      default: '1'
+      defaultExpr: '1'
+      description: 1=web, 2=original, 3=custom
+    object_type: 
+      type: INTEGER
+      required: true
+      description: 1=file, 2=folder, 3=group
+    object_id: 
+      type: INTEGER
+      required: true
+    user_id: 
+      type: INTEGER
+      required: true
+    created_at: 
+      type: TIMESTAMP
+    end_at: 
+      type: TIMESTAMP
+      required: true
+    link: 
+      type: VARCHAR
+      size: 255
+      required: true
+    qrcode: 
+      type: VARCHAR
+      size: 255
+      required: true
+    allow_comments: 
+      type: boolean
+      required: true
+    format_hd: 
+      type: boolean
+      required: true
+    state: 
+      type: INTEGER
+      required: true
+    password: 
+      type: VARCHAR
+      size: 255
+      required: false
+    _indexes: 
+      object_id: 
+        - file_id
+      user_id: 
+        - user_id
+
+  rating: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    file_id: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    nb_rate: 
+      type: INTEGER
+      required: true
+    total_rate: 
+      type: INTEGER
+      required: true
+    user_ids: 
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    updated_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      object_id: 
+        - file_id
+      user_id: 
+        - nb_rate
+
+  request: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    type: 
+      type: TINYINT
+      required: true
+      description: 0-group access request, 1- a particular group, 2 - technical problems, 3 - other
+    groupe_id: 
+      type: INTEGER
+      required: true
+    folder_id: 
+      type: INTEGER
+      required: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    is_request: 
+      type: TINYINT
+      required: true
+      default: '0'
+      defaultExpr: '0'
+      description: 1-request for access to the group, 0-messages about groups, other and technical problems
+    message: 
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      groupe_id: 
+        - groupe_id
+      user_id: 
+        - user_id
+
+  role: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  tag: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description: 
+      type: LONGVARCHAR
+      required: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      customer_id: 
+        - customer_id
+
+  unit: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    description:
+      type: LONGVARCHAR
+      required: false
+    _indexes: 
+      customer_id: 
+        - customer_id
+
+  user: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    username: 
+      type: VARCHAR
+      size: 255
+      required: true
+    password: 
+      type: VARCHAR
+      size: 255
+      required: true
+    firstname: 
+      type: VARCHAR
+      size: 255
+      required: true
+    lastname: 
+      type: VARCHAR
+      size: 255
+      required: true
+    email: 
+      type: VARCHAR
+      size: 255
+      required: true
+    position: 
+      type: VARCHAR
+      size: 255
+      required: true
+    phone: 
+      type: VARCHAR
+      size: 255
+      required: true
+    role_id: 
+      type: INTEGER
+      required: true
+      foreignTable: role
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    last_login_at: 
+      type: TIMESTAMP
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    hash: 
+      type: VARCHAR
+      size: 255
+      required: true
+    country_id:
+      type: INTEGER
+      required: true
+      foreignTable: country
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    culture: 
+      type: VARCHAR
+      size: 255
+      required: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    state: 
+      type: INTEGER
+      required: true
+    view_mode:
+      type: VARCHAR
+      size: 255
+      required: false
+    comment:
+      type: LONGVARCHAR
+      required: false
+    _indexes: 
+      role_id: 
+        - role_id
+      customer_id: 
+        - customer_id
+      country_id: 
+        - country_id
+
+  user_folder: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    folder_id: 
+      type: INTEGER
+      required: true
+      foreignTable: folder
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    role: 
+      type: VARCHAR
+      size: 255
+      required: true
+    _indexes: 
+      user_id: 
+        - user_id
+      folder_id: 
+        - folder_id
+
+  user_group: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id: 
+      type: INTEGER
+      required: false
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    groupe_id: 
+      type: INTEGER
+      required: true
+      foreignTable: groupe
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    role: 
+      type: VARCHAR
+      size: 255
+      required: true
+    state: 
+      type: INTEGER
+      required: true
+    _indexes: 
+      user_id: 
+        - user_id
+      group_id: 
+        - groupe_id
+
+  user_unit: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    unit_id: 
+      type: INTEGER
+      required: true
+      foreignTable: unit
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    _indexes: 
+      user_id: 
+        - user_id
+      unit_id: 
+        - unit_id
+
+  exif: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true    
+    value: 
+      type: LONGVARCHAR
+      required: true
+    file_id: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      file_id: 
+        - file_id
+
+  module_value:
+    _attributes:
+      isI18N: true
+      i18nTable: module_value_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    module_id : 
+      type: INTEGER
+      required: true
+      foreignTable: module
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    value: 
+      type: LONGVARCHAR
+      required: true
+    ranking: 
+      type: INTEGER
+      required: true
+    _indexes:
+      module_id: 
+        - module_id
+
+  module_value_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: module_value
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    description:
+      type: LONGVARCHAR
+      required: false
+
+  module:
+    _attributes:
+      isI18N: true
+      i18nTable: module_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    deactivated: 
+      type: BOOLEAN
+      required: true
+    default_value: 
+      type: INTEGER
+      required: false
+      foreignTable: module_value
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    _indexes: 
+      default_value: 
+        - default_value
+
+  module_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: module
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title:
+      type: VARCHAR
+      size: 255
+      required: true
+    description:
+      type: LONGVARCHAR
+      required: false
+
+  customer_has_module:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    module_id:
+      type: INTEGER
+      required: true
+      foreignTable: module
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    module_value_id:
+      type: INTEGER
+      required: false
+      foreignTable: module_value
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    customer_value:
+      type: LONGVARCHAR
+      required: false
+    created_at:
+      type: TIMESTAMP
+      required: true
+    active:
+      type: boolean
+      required: true
+    _indexes:
+      customer_id: 
+        - customer_id
+      module_id: 
+        - module_id
+      module_value_id: 
+        - module_value_id
+
+  unique_key:
+    id: 
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    user_id:
+      type: INTEGER
+      required: false
+      foreignTable: user
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    created_at:
+      type: TIMESTAMP
+      required: true
+    expired_at:
+      type: TIMESTAMP
+      required: false
+    ip:
+      type: LONGVARCHAR
+      required: true
+    uri:
+      type: LONGVARCHAR
+      required: true
+    referer:
+      type: LONGVARCHAR
+      required: false
+    session_params:
+      type: LONGVARCHAR
+      required: false
+    _indexes:
+      user_id: 
+        - user_id
+
+  email:
+    _attributes:
+      isI18N: true
+      i18nTable: email_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    name: 
+      type: VARCHAR
+      size: 255
+      required: true
+    created_at:
+      type: TIMESTAMP
+      required: true
+
+  email_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: email
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    subject: 
+      type: VARCHAR
+      size: 255
+      required: true
+    message: 
+      type: LONGVARCHAR
+      required: true
+
+  culture:
+    _attributes:
+      isI18N: true
+      i18nTable: culture_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+
+  culture_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: culture
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    code:
+      type: VARCHAR
+      size: 2
+      required: true
+    title:
+      type: VARCHAR
+      size: 255
+      required: true
+
+  user_preference:
+    id:
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    title:
+      type: VARCHAR
+      size: 255
+      required: true
+    value:
+      type: LONGVARCHAR
+      required: true
+    order:
+      type: INTEGER
+      required: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    _indexes: 
+      user_id: 
+        - user_id
+
+  usage_type:
+    _attributes:
+      isI18N: true
+      i18nTable: usage_type_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+
+  usage_type_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: usage_type
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title:
+      type: VARCHAR
+      size: 255
+      required: true
+
+  file_right: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    object_id: 
+      type: INTEGER
+      required: true
+    type: 
+      type: INTEGER
+      required: true
+    usage_limitation_id: 
+      type: INTEGER
+      required: true
+      foreignTable: usage_limitation
+      foreignReference: id
+    value: 
+      type: VARCHAR
+      size: 255
+      required: true
+    created_at:
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      usage_limitation_id: 
+        - usage_limitation_id
+
+  iptc: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true    
+    value: 
+      type: LONGVARCHAR
+      required: true
+    file_id: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      file_id: 
+        - file_id
+
+  basket: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    code: 
+      type: VARCHAR
+      size: 15
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description: 
+      type: LONGVARCHAR
+      required: false
+    state: 
+      type: INTEGER
+      required: true
+    password: 
+      type: VARCHAR
+      size: 255
+      required: false
+    allow_comments: 
+      type: boolean
+      required: true
+      default: false
+    allow_download_hd: 
+      type: boolean
+      required: true
+      default: true
+    is_valid: 
+      type: boolean
+      required: true
+      default: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    is_shared: 
+      type: boolean
+      required: true
+      default: false
+      
+    _indexes: 
+      user_id: 
+        - user_id
+
+  basket_has_content: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    basket_id: 
+      type: INTEGER
+      required: true
+      foreignTable: basket
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    file_id: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      basket_id: 
+        - basket_id
+      file_id: 
+        - file_id
+
+  basket_has_comment: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    basket_id: 
+      type: INTEGER
+      required: true
+      foreignTable: basket
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    email: 
+      type: VARCHAR
+      size: 255
+      required: true
+    comment: 
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      basket_id: 
+        - basket_id
+
+  unit_group: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    unit_id: 
+      type: INTEGER
+      required: true
+      foreignTable: unit
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    groupe_id: 
+      type: INTEGER
+      required: true
+      foreignTable: groupe
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    role: 
+      type: INTEGER
+      required: true
+      foreignTable: role
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    _indexes: 
+      unit_id: 
+        - unit_id
+      group_id: 
+        - groupe_id
+      role: 
+        - role
+
+  file_waiting: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    file_id: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    state: 
+      type: INTEGER
+      required: true
+    cause: 
+      type: LONGVARCHAR
+      required: false
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      file_id: 
+        - file_id
+      user_id: 
+        - user_id
+
+  log_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: log
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    content: 
+      type: LONGVARCHAR
+      required: true
+
+  url: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    type:
+      type: VARCHAR
+      size: 255
+      required: true
+    path: 
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  disk:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    name:
+      type: VARCHAR
+      size: 255
+      required: true
+    path:
+      type: VARCHAR
+      size: 255
+      required: true
+    by_default: 
+      type: boolean
+      required: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    _indexes: 
+      customer_id: 
+        - customer_id
+
+  permalink_comment:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    permalink_id: 
+      type: INTEGER
+      required: true
+      foreignTable: permalink
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    email: 
+      type: VARCHAR
+      size: 255
+      required: true
+    comment: 
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      permalink: 
+        - permalink
+
+  constraint:
+    _attributes:
+      isI18N: true
+      i18nTable: constraint_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    role_id: 
+      type: INTEGER
+      required: false
+      foreignTable: role
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at:
+      type: TIMESTAMP
+      required: true
+
+  constraint_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: constraint
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  groupe_constraint:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    groupe_id: 
+      type: INTEGER
+      required: true
+      foreignTable: groupe
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    constraint_id: 
+      type: INTEGER
+      required: true
+      foreignTable: constraint
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    _indexes: 
+      groupe_id: 
+        - groupe_id
+      constraint_id: 
+        - constraint_id
+
+  file_related:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    file_id_to: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    file_id_from: 
+      type: INTEGER
+      required: true
+      foreignTable: file
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at:
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      file_id_to: 
+        - file_id_to
+      file_id_from: 
+        - file_id_from
+      user_id: 
+        - user_id
+
+  licence:
+    _attributes:
+      isI18N: true
+      i18nTable: licence_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  licence_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: licence
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description:
+      type: LONGVARCHAR
+      required: false
+
+  country:
+    _attributes:
+      isI18N: true
+      i18nTable: country_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    continent_id: 
+      type: INTEGER
+      required: true
+      foreignTable: continent
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    phone_code: 
+      type: INTEGER
+      required: true
+    ue: 
+      type: boolean
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  country_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: country
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  continent:
+    _attributes:
+      isI18N: true
+      i18nTable: continent_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  continent_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: continent
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  usage_support:
+    _attributes:
+      isI18N: true
+      i18nTable: usage_support_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    customer_id:
+      type: INTEGER
+      required: false
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      customer_id: 
+        - customer_id
+
+  usage_support_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: usage_support
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  usage_constraint:
+    _attributes:
+      isI18N: true
+      i18nTable: usage_constraint_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  usage_constraint_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: usage_constraint
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  usage_distribution:
+    _attributes:
+      isI18N: true
+      i18nTable: usage_distribution_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  usage_distribution_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: usage_distribution
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description:
+      type: LONGVARCHAR
+      required: false
+
+  usage_limitation:
+    _attributes:
+      isI18N: true
+      i18nTable: usage_limitation_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    usage_type_id:
+      type: INTEGER
+      required: false
+      foreignTable: usage_type
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      usage_type_id: 
+        - usage_type_id
+
+  usage_limitation_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: usage_limitation
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  usage_use:
+    _attributes:
+      isI18N: true
+      i18nTable: usage_use_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  usage_use_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: usage_use
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description:
+      type: LONGVARCHAR
+      required: false
+
+  usage_commercial:
+    _attributes:
+      isI18N: true
+      i18nTable: usage_commercial_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  usage_commercial_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: usage_commercial
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  creative_commons:
+    _attributes:
+      isI18N: true
+      i18nTable: creative_commons_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    image_path:
+      type: LONGVARCHAR
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+
+  creative_commons_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: creative_commons
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    description:
+      type: LONGVARCHAR
+      required: false
+
+  log_user:
+    id:
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    remote_addr: 
+      type: LONGVARCHAR
+      required: false
+    user_agent: 
+      type: LONGVARCHAR
+      required: false
+    uri: 
+      type: LONGVARCHAR
+      required: false
+    referer: 
+      type: LONGVARCHAR
+      required: false
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      user_id: 
+        - user_id
+
+  log_groupe:
+    id:
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    groupe_id: 
+      type: INTEGER
+      required: true
+      foreignTable: groupe
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    used_space_disk: 
+      type: INTEGER
+      required: true
+    folders: 
+      type: INTEGER
+      required: true
+    files: 
+      type: INTEGER
+      required: true
+    upload_traffic: 
+      type: INTEGER
+      required: true
+    download_traffic: 
+      type: INTEGER
+      required: true
+    upload_traffic_files: 
+      type: INTEGER
+      required: true
+    download_traffic_files: 
+      type: INTEGER
+      required: true
+    views: 
+      type: INTEGER
+      required: true
+    unique_views: 
+      type: INTEGER
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      groupe_id: 
+        - groupe_id
+
+  permalink_notification:
+    id:
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    permalink_id: 
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    add_comment: 
+      type: boolean
+      required: true
+    _indexes: 
+      user_id: 
+        - user_id
+      permalink_id: 
+        - permalink_id
+
+  user_has_module:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    user_id:
+      type: INTEGER
+      required: true
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    module_id:
+      type: INTEGER
+      required: true
+      foreignTable: module
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    module_value_id:
+      type: INTEGER
+      required: false
+      foreignTable: module_value
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    user_value:
+      type: LONGVARCHAR
+      required: false
+    created_at:
+      type: TIMESTAMP
+      required: true
+    active:
+      type: boolean
+      required: true
+    _indexes:
+      user_id: 
+        - user_id
+      module_id: 
+        - module_id
+      module_value_id: 
+        - module_value_id
+
+  module_visibility:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  module_has_visibility:
+    module_id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: module
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    module_visibility_id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: module_visibility
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+
+  lexicon:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    culture: 
+      type: VARCHAR
+      size: 255
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  thesaurus:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    culture_id: 
+      type: INTEGER
+      required: true
+      foreignTable: culture
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    type: 
+      type: INTEGER
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+    parent_id:
+      type: INTEGER
+      required: true
+      foreignTable: thesaurus
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes:
+      customer_id: 
+        - customer_id
+      culture_id: 
+        - culture_id
+      parent_id: 
+        - parent_id
+
+  preset:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    customer_id:
+      type: INTEGER
+      required: true
+      foreignTable: customer
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    name: 
+      type: VARCHAR
+      size: 255
+      required: true
+    licence_id: 
+      type: INTEGER
+      required: false
+      foreignTable: licence
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    usage_distribution_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_distribution
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_constraint_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_constraint
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_use_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_use
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    usage_commercial_id: 
+      type: INTEGER
+      required: false
+      foreignTable: usage_commercial
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    creative_commons_id:
+      type: INTEGER
+      required: false
+      foreignTable: creative_commons
+      foreignReference: id
+      onDelete: set null
+      onUpdate: set null
+    created_at:
+      type: TIMESTAMP
+      required: true
+    _indexes: 
+      licence_id: 
+        - licence_id
+      usage_distribution_id: 
+        - usage_distribution_id
+      usage_constraint_id: 
+        - usage_constraint_id
+      usage_use_id: 
+        - usage_use_id
+      usage_commercial_id: 
+        - usage_commercial_id
+      creative_commons_id: 
+        - creative_commons_id
+
+  basket_request:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    basket_id: 
+      type: INTEGER
+      required: true
+      foreignTable: basket
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    user_id: 
+      type: INTEGER
+      required: false
+      foreignTable: user
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    accept: 
+      type: boolean
+      required: true
+    created_at: 
+      type: TIMESTAMP
+      required: true
+    _indexes:
+      basket_id: 
+        - basket_id
+      user_id: 
+        - user_id
+
+  geolocation_type:
+    _attributes:
+      isI18N: true
+      i18nTable: geolocation_type_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    created_at:
+      type: TIMESTAMP
+      required: true
+
+  geolocation_type_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: geolocation_type
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    title: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  geolocation:
+    _attributes:
+      isI18N: true
+      i18nTable: geolocation_i18n
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    object_id:
+      type: INTEGER
+      required: true
+    object_type:
+      type: INTEGER
+      required: true
+    geolocation_type_id:
+      type: INTEGER
+      required: true
+      foreignTable: geolocation_type
+      foreignReference: id
+    _indexes: 
+      geolocation_type_id: 
+        - geolocation_type_id
+
+  geolocation_i18n:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      foreignTable: geolocation
+      foreignReference: id
+    culture:
+      isCulture: true
+      type: VARCHAR
+      size: 255
+      primaryKey: true
+      required: true
+    value: 
+      type: VARCHAR
+      size: 255
+      required: true
+
+  permalink_log:
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    object_id: 
+      type: INTEGER
+      required: true
+    object_type: 
+      type: INTEGER
+      required: true
+    remote_addr:
+      type: VARCHAR
+      size: 255
+      required: true
+    created_at:
+      type: TIMESTAMP
+      required: true
+
+  unit_folder: 
+    id: 
+      type: INTEGER
+      primaryKey: true
+      required: true
+      autoIncrement: true
+    unit_id: 
+      type: INTEGER
+      required: true
+      foreignTable: unit
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    folder_id: 
+      type: INTEGER
+      required: true
+      foreignTable: folder
+      foreignReference: id
+      onDelete: cascade
+      onUpdate: cascade
+    role: 
+      type: VARCHAR
+      size: 255
+      required: true
+    _indexes: 
+      unit_id: 
+        - unit_id
+      folder_id: 
+        - folder_id
+
+  reset_password_request:
+    token:            {type: VARCHAR, size: 100, primaryKey: true}
+    user_id:          {type: INTEGER, required: true, foreignTable: user, foreignReference: id, onDelete: cascade, onUpdate: cascade}
+    created_at:       ~

@@ -1,0 +1,63 @@
+default:
+  layout: layout_v2
+
+userListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/user/list.js]
+
+userNewSuccess: 
+  javascripts: [apps/backend/src/modules/admin/user/new_edit.js]
+
+userEditSuccess: 
+  javascripts: [apps/backend/src/modules/admin/user/new_edit.js]
+
+userGroupListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/user/groupList.js]
+
+userModuleListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/user/moduleList.js]
+
+userAlbumRightListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/user/albumRightList.js]
+
+fileDuplicateListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/file/list.js]
+
+moduleListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/module/list.js]
+
+groupListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/group/list.js]
+
+groupUserListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/group/userList.js]
+
+groupPermissionListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/group/permissionList.js]
+  
+presetListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/preset/list.js]
+
+presetNewSuccess: 
+  javascripts: [apps/backend/src/modules/admin/preset/newEdit.js, apps/backend/src/components/continentPartial.js, apps/backend/src/components/supportPartial.js]
+
+presetEditSuccess: 
+  javascripts: [apps/backend/src/modules/admin/preset/newEdit.js, apps/backend/src/components/continentPartial.js, apps/backend/src/components/supportPartial.js]
+
+tagListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/tag/list.js]
+
+tagFolderListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/tag/folderList.js]
+
+tagAlbumListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/tag/albumList.js]
+  
+tagFileListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/tag/fileList.js]
+ 
+thesaurusListSuccess:
+  javascripts: [jquery.jstree.min.js, apps/backend/src/modules/admin/thesaurus/list.js]
+  stylesheets: [jquery.jstree.css]
+  
+albumListSuccess: 
+  javascripts: [apps/backend/src/modules/admin/album/list.js]

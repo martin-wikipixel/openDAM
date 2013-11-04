@@ -1,0 +1,23 @@
+publicShow:
+  is_secure: false
+
+authentication:
+  is_secure: false
+
+loadComments:
+  is_secure: false
+
+slideshowPublic:
+  is_secure: false
+
+publicLogin:
+  is_secure: false
+
+publicSignup:
+  is_secure: false
+
+postComment:
+  is_secure: false
+
+thumbnailShow:
+  is_secure: false

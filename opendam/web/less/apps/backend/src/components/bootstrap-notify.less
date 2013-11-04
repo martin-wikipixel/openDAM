@@ -1,0 +1,45 @@
+/**
+ * Bootstrap-notify.less
+ *
+ * @author Vitaly @Laboratory
+ * @author Nijiko Yonskai
+ * @copyright 2012 Vitaly
+ * @copyright 2013 Nijiko Yonskai
+ */
+
+@right: 10px;
+@left: @right;
+@top: 25px;
+@bottom: @top;
+
+.notifications {
+	position: fixed;
+
+	> div {
+		box-shadow: 0 2px 10px rgba(50, 50, 50, 0.5);
+		position: relative;
+		z-index: 9999;
+		margin: 5px 0px;
+	}
+
+	&.center {
+		top: 40px;
+		left: 0;
+		width: 100%;
+
+		> div {
+			 margin: 5px auto;
+			width: 20%;
+			text-align: center;
+		}
+	}
+	
+	// surcharge bootrap
+	.alert {
+		padding: 15px 30px 15px 15px;
+		
+		.close {
+			margin-top: -10px;
+		}
+	}
+}

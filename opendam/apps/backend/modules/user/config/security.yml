@@ -1,0 +1,17 @@
+login:
+  is_secure: false
+
+password:
+  is_secure: false
+
+resetPassword:
+  is_secure: false
+
+activateUser:
+  is_secure: false
+
+loginShowFolder:
+  is_secure: false
+
+tokenConnect:
+  is_secure: false

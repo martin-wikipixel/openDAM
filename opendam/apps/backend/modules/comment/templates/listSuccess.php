@@ -1,0 +1,1 @@
+<?php include_partial("comment/list", array("file_id"=>$file_id));?>

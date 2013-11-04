@@ -1,0 +1,22 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout
+
+### frameLayout ###
+mapSuccess:
+  stylesheets:
+    - leaflet/leaflet.css
+    - leaflet/leaflet.ie.css: { condition: lte IE 8 }
+
+singleFileSuccess:
+  stylesheets:
+    - leaflet/leaflet.css
+    - leaflet/leaflet.ie.css: { condition: lte IE 8 }
+    
+### no layout ###
+foldersSuccess:
+  has_layout: false
+  
+filesSuccess:
+  has_layout: false

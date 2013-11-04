@@ -1,0 +1,165 @@
+#admin-order-eur-new-page {
+	.order-product {
+		display: inline-block;
+		color: @gray;
+
+		&.hide-me {
+			.opacity(25);
+		}
+
+		&.selected {
+			font-weight: normal;
+
+			h3 {
+				background: @blue;
+				color: @white;
+			}
+
+			.price {
+				background: @blue;
+				color: @white;
+				border-top: 1px solid @white;
+
+				.product-description {
+					.label {
+						background: @white;
+						color: @blue;
+					}
+				}
+			}
+
+			.content {
+				border-top: 0px;
+			}
+		}
+
+		> div {
+			border: 1px solid @gray;
+			h3 {
+				font-weight: normal;
+				padding: 15px 0px;
+				margin: 0px;
+				text-align: center;
+				background: @white;
+			}
+	
+			.price {
+				border-top: 1px solid @gray;
+				text-align: center;
+				padding-bottom: 15px;
+				padding-top: 10px;
+				background: @white;
+				font-size: 24px;
+	
+				.product-description {
+					.label {
+						background: @blue;
+						font-weight: normal;
+						text-shadow: none;
+						margin-bottom: 15px;
+					}
+				}
+	
+				.storage {
+					font-size: 16px;
+					margin-bottom: 15px;
+	
+					select {
+						margin: 0px;
+						margin-left: 5px;
+						margin-top: -3px;
+						font-size: 16px!important;
+						font-family: @customFontFamily!important;
+						color: @gray;
+					}
+				}
+			}
+
+			.content {
+				padding-top: 15px;
+				padding-left: 15px;
+				padding-bottom: 15px;
+				border: 1px solid @white;
+				border-top: 0px;
+	
+				.line {
+					i {
+						margin-right: 10px;
+					}
+				}
+			}
+	
+			.select-product {
+				text-align: center;
+				margin-bottom: 10px;
+			}
+		}
+	}
+
+	.total {
+		margin-top: 40px;
+		border-top: 1px solid @blue;
+		border-bottom: 1px solid @blue;
+		padding-top: 8px;
+		padding-bottom: 8px;
+
+		.biling {
+			input {
+				display: inline-block;
+				font-size: 14px;
+				border: 0px;
+				margin-top: -3px;
+			}
+
+			label {
+				display: inline-block;
+				float: none;
+				width: auto;
+				font-size: 14px;
+				color: @gray;
+				margin: 0px;
+
+				.discount {
+					color: @blue;
+				}
+			}
+		}
+	}
+
+	.valid-order {
+		margin-top: 40px;
+	}
+
+	#showPayment {
+		margin-top: 40px;
+		font-size: 14px;
+
+		select {
+			font-size: 14px!important;
+			font-family: @customFontFamily!important;
+			border: 1px solid #CCCCCC;
+			margin: 0px;
+			padding: 0px;
+			margin-bottom: 15px;
+		}
+
+		.text {
+			font-size: 14px;
+			color: @gray;
+
+			a {
+				color: @blue;
+				font-size: 14px;
+			}
+		}
+
+		#payment_area {
+			position: relative;
+
+			.AuthorizeNetSeal {
+				position: absolute;
+				right: 130px;
+			}
+		}
+	}
+}

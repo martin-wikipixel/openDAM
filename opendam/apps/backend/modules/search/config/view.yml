@@ -1,0 +1,2 @@
+searchSuccess:
+  javascripts: [jquery.masonry.min.js, jquery.slimscroll.js, jquery.infinitescroll.min.js, jquery.myWall.js]

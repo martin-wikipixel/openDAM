@@ -1,0 +1,25 @@
+.modal {
+	&.large {
+		@width: 70%;
+
+		width: @width;
+		margin-left: @width / -2;
+	}
+
+	&.xlarge {
+		@width: 90%;
+
+		width: @width;
+		margin-left: @width / -2;
+	}
+
+	.modal-header {
+		&.no-border {
+			border: 0px;
+		}
+
+		.nav-tabs {
+			margin-bottom: 0px;
+		}
+	}
+}

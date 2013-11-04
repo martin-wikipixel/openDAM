@@ -1,0 +1,13 @@
+## YAML Template.
+attachSuccess:
+  layout    : frameLayout
+listSuccess:
+  layout    : frameLayout
+mergeSuccess:
+  layout    : frameLayout
+updateSuccess:
+  layout    : frameLayout
+updateGroupSuccess:
+  layout    : frameLayout
+attachGroupSuccess:
+  layout    : frameLayout

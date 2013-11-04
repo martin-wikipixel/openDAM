@@ -1,0 +1,12 @@
+## YAML Template.
+loginSuccess:
+  stylesheets: [module/user/login.css]
+
+passwordSuccess:
+  stylesheets: [module/user/password.css]
+
+resetPasswordSuccess:
+  stylesheets: [module/user/password.css]
+  
+activateUserSuccess:
+  javascripts: [jquery.dpassword.min.js]

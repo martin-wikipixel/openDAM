@@ -1,0 +1,46 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : frameLayout
+
+#### public ####
+replaceSuccess:
+  stylesheets:    []
+  javascripts:    []
+
+videoSuccess:
+  layout    : video
+  javascripts: [apps/backend/lib/video.js]
+  stylesheets: [lib/video-js/video-js.css]
+
+viewDocumentSuccess:
+  layout    : viewer
+
+#### frameLayout V2 ####
+replaceSuccess:
+  layout    : frameLayout_v2
+  javascripts: [apps/backend/src/modules/file/replace.js]
+
+#### app ####
+homeSuccess:
+  layout    : layout
+
+showSuccess:
+  layout     : layout
+  javascripts: [apps/backend/lib/video.js, jquery.editable.min.js, jquery.timepicker.min.js, jquery.jcrop.min.js, jquery.cookie.js, jquery.treeview.file.min.js, jquery.treeview.file.edit.min.js, jquery.treeview.file.async.min.js, jquery.tagit.min.js, jquery.masonry.min.js, jquery.myWall.js]
+  stylesheets: [lib/video-js/video-js.css, jquery.jcrop.css, jquery.treeview.css, jquery.tagit.css]
+
+sendFileFormSuccess:
+  has_layout: true
+
+thumbnailUploadSideSuccess:
+  has_layout: false
+
+editSelectedSuccess:
+  javascripts: [jquery.timepicker.min.js, jquery.treeview.file.min.js, jquery.treeview.file.edit.min.js, jquery.treeview.file.async.min.js]
+  stylesheets: [jquery.treeview.css]
+
+recentSuccess:
+  layout: layout
+  javascripts: [jquery.masonry.min.js, jquery.myWall.js]
+  stylesheets: [jquery-ui-1.7.1.custom.css]

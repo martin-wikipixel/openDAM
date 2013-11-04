@@ -1,0 +1,1 @@
+<?php include_partial("tag/filteredTags", array('folder_ids'=>$sf_params->get("folder_ids"), 'file_ids'=>$sf_params->get("file_ids")));?>

@@ -1,0 +1,9 @@
+## YAML Template.
+default:
+  layout    : frameLayout
+
+loadGeoSuccess:
+  has_layout: false
+
+loadSupportSuccess:
+  has_layout: false

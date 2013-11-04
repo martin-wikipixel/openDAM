@@ -1,0 +1,18 @@
+.item {
+	.opacity(0);
+}
+
+.masonry {
+	@transition: "height, width";
+	.transition-property(@transition);
+	.transition-duration(0.2s);
+}
+
+.masonry .masonry-brick {
+	.transition-duration(1s);
+}
+
+.item.masonry-brick {
+	.opacity(100);
+	.transition-property(opacity);
+}

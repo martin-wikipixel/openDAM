@@ -1,0 +1,37 @@
+## YAML Template.
+all:
+  has_layout: true
+  layout    : layout_v2
+
+##### app #####
+
+editSuccess: 
+  javascripts: [apps/backend/src/modules/selection/edit.js]
+
+listSuccess:
+  javascripts: [apps/backend/src/modules/selection/list.js]
+  
+fileListSuccess:
+  javascripts: [apps/backend/src/modules/selection/fileList.js]
+
+commentListSuccess:
+  javascripts: [apps/backend/src/modules/selection/commentList.js]
+
+##### public #####
+publicSlideshowSuccess:
+  has_layout: false
+
+publicAuthentication:
+  is_secure: false
+
+publicShowSuccess:
+  layout    : layout_public_bootstrap
+  javascripts: [-*, jquery.new.min.js, jquery.masonry.min.js, jquery.flexslider.js, jquery.infinitescroll.min.js, bootstrap.min.js, apps/backend/src/modules/selection/publicShow.js]
+  stylesheets: [-*,  "https://fonts.googleapis.com/css?family=Lato:400,700", main.css, font-awesome.min.css, jquery.flexslider.css]
+  
+
+publicAuthenticationSuccess:
+  layout    : layout_public_bootstrap
+  javascripts: [-*, jquery.new.min.js, bootstrap.min.js]
+  stylesheets: [-*, main.css, font-awesome.min.css, "https://fonts.googleapis.com/css?family=Lato:400,700"]
+  

@@ -1,0 +1,96 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/11-App
+
+# default values
+prod:
+  sf_less_plugin:
+    compile:  false
+  assetic: 
+    active: false
+
+dev:
+  all_module_on_admin: false
+  sf_less_plugin:
+    check_dates:        true
+    check_dependencies: true
+
+all:
+  ch_cms_expose_routing:
+    register_scripts: true
+    register_routes: true
+    auto_discover: true
+    params_blacklist:
+      - module
+      - action
+
+  max_per_page: 20
+
+  languages:
+    available: [fr, en]
+
+  path:
+    upload_dir: "%sf_web_dir%/data"
+    upload_dir_name: data
+    temp_dir: "%sf_web_dir%/tmp"
+    temp_dir_name: tmp
+    images_dir: "%sf_web_dir%/images"
+    images_dir_name: images
+    css_dir: "%sf_web_dir%/css"
+    css_dir_name: css
+    js_dir: "%sf_web_dir%/js"
+    js_dir_name: js
+    flash_dir: "%sf_web_dir%/flah"
+    flash_dir_name: flash
+    temp_dir_js: "%sf_web_dir%/data/tmp_files"
+    temp_dir_js_name: tmp_files
+    qrcode_dir: "%sf_web_dir%/data/qrcode"
+    qrcode_dir_name: data/qrcode
+    download_dir: "%sf_web_dir%/download"
+    download_dir_name: download
+
+  facebox_iframe:
+    sizes: [650, 750, 900]
+
+  facebox_650:
+    pages: [folder/comment, file/sendFileForm, file/move, file/copy, file/delete, folder/move, folder/delete, group/merge, file/moveSelected, file/copySelected, file/deleteSelected, folder/addFolderUpload, group/step1, group/merge, map/nomap, group/remove, file/regenerateThumbnails]
+
+  facebox_750:
+    pages: [folder/accessRights, folder/inviteUsers, folder/importUsers]
+
+  facebox_900:
+    pages: [group/manageUsers, group/accessRight, group/inviteUsers, group/importUsers, group/constraint, group/tags, folder/edit, folder/thumbnail, folder/default, file/replace, upload/uploadify2, group/fields, group/step1, group/thumbnail, group/require]
+
+  imagemagick:
+    profile_rgb: "%sf_root_dir%/inc/sRGB.icc"
+
+  search:
+    empty_media: keyword:none
+    not_filename: -filename
+
+  assetic: 
+    active: false
+    yui_path: "%sf_lib_dir%/yuicompressor-2.4.7.jar"
+    js: 
+      path: main-prod.js
+      files: 
+        - jquery/jquery-2.0.3.min.js
+        - jquery/jquery-migrate-1.2.1.min.js
+        - jquery/jquery-ui.min.js
+        - facebox.min.js 
+        - tools.js
+        - plugins.min.js
+        - basket.min.js
+        - jquery.editable.min.js
+        - jquery.datepicker.fr.min.js
+        - jquery.datepicker.en.min.js
+        - jquery.simplePagination.js
+        - modules/global/scroll.js
+    css: 
+      path: main-prod.css
+      files: 
+        - app.css
+        - style.css
+        - font-awesome.min.css
+        - jquery-ui-1.7.1.custom.css
+        - module/user/login.css
+        - module/user/password.css

@@ -1,0 +1,1 @@
+<?php include_partial("tag/selectedTagsFile", array("file"=>$file));?>

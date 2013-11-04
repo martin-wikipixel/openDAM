@@ -1,0 +1,1146 @@
+group_thumbnail: 
+  url:   /album/thumbnail/:id
+  param: { module: group, action: thumbnailShow }
+
+folder_thumbnail: 
+  url:   /folder/thumbnail/:id
+  param: { module: folder, action: thumbnailShow }
+
+# UPLOAD
+upload_file_replace:
+  url:   /files/upload/replace
+  param: { module: upload, action: mergeFileForReplacing }
+  options:
+    app_expose: true
+
+upload_show:
+  url:   /upload/uploadify
+  param: { module: upload, action: uploadify }
+  options:
+    app_expose: true
+
+upload_get_folders:
+  url:   /files/upload/:album/folder/list
+  param: { module: upload, action: getFolders }
+  options:
+    app_expose: true
+
+upload_file_edit:
+  url:   /files/upload/:folder/edit
+  param: { module: upload, action: option }
+  options:
+    app_expose: true
+
+upload_file_identify:
+  url:   /files/upload/identify
+  param: { module: upload, action: identifyFile }
+  options:
+    app_expose: true
+
+upload_file_merge:
+  url:   /files/upload/merge
+  param: { module: upload, action: mergeFile }
+  options:
+    app_expose: true
+
+upload_file:
+  url:   /files/upload
+  param: { module: upload, action: uploadFile }
+  options:
+    app_expose: true
+  
+# EXPLORER
+explorer_show:
+  url:   /explorer/albums/list
+  param: { module: explorer, action: show }
+  options:
+    app_expose: true
+
+explorer_show_album:
+  url:   /explorer/albums/:albumId/list
+  param: { module: explorer, action: list }
+  options:
+    app_expose: true
+
+# FAVORITE
+favorite_list:
+  url:   /favorite/list
+  param: { module: favorite, action: list }
+  options:
+    app_expose: true
+
+# FOLDER
+folder_right_group_list:
+  url:   /folder/:folder/rights/groups
+  param: { module: folder, action: rightGroupList }
+  options:
+    app_expose: true
+
+folder_right_group_update:
+  url:   /folder/:folder/rights/groups/:group/update
+  param: { module: folder, action: rightGroupUpdate }
+  options:
+    app_expose: true
+
+folder_right_user_list:
+  url:   /folder/:folder/rights/users
+  param: { module: folder, action: rightUserList }
+  options:
+    app_expose: true
+
+folder_right_user_update:
+  url:   /folder/:folder/rights/users/:user/update
+  param: { module: folder, action: rightUserUpdate }
+  options:
+    app_expose: true
+
+folder_right_everybody_update:
+  url:   /folder/:folder/rights/everybody/update
+  param: { module: folder, action: rightEverybodyUpdate }
+  options:
+    app_expose: true
+
+file_recent_list:
+  url:   /files/recent/list
+  param: { module: file, action: recent }
+
+group_private_list:
+  url:   /albums/private/list
+  param: { module: group, action: private }
+
+group_shared_list:
+  url:   /albums/shared/list
+  param: { module: group, action: shared }
+
+group_list:
+  url:   /albums/list
+  param: { module: group, action: list }
+
+group_new:
+  url:   /albums/:name/new
+  param: { module: group, action: new }
+  options:
+    app_expose: true
+
+group_right_user_expiration_update:
+  url:   /albums/:id/rights/expiration/update
+  param: { module: group, action: saveExpiration }
+  options:
+    app_expose: true
+
+group_right_user_expiration_list:
+  url:   /albums/:id/rights/expiration/list
+  param: { module: group, action: loadExpiration }
+  options:
+    app_expose: true
+
+header_img_groupe_upload:
+  url:   /header-groupe-img-upload
+  param: { module: group, action: headerImgUpload }
+
+public_getIndicatif:
+  url:   /public/getIndicatif
+  param: { module: public, action: getIndicatif }
+  options:
+    app_expose: true
+
+default_getIndicatif:
+  url:   /public/getIndicatif
+  param: { module: public, action: getIndicatif }
+  options:
+    app_expose: true
+
+# TOKEN CONNECTION
+token_connection:
+  url:   /cu/:code
+  param: { module: user, action: tokenConnect}
+  options:
+    app_expose: true
+
+# INTERNAL PERMALINK GROUP
+permalink_group:
+  url:   /g/:link
+  param: { module: group, action: publicShowInternal}
+
+# PERMALINK GROUP
+permalink_group:
+  url:   /mf/:link
+  param: { module: group, action: publicShow}
+
+permalink_preview:
+  url:   /pr/:link
+  param: { module: permalink, action: preview}
+
+# ACTIVE USER
+active-user:
+  url:   /active-user/:h/:v
+  param: { module: user, action: activateUser }
+
+# TINY URL
+tiny_url:
+  url:   /u/:link
+  param: { module: public, action: redirect}
+
+permalink_preview:
+  url:   /pr/:link
+  param: { module: permalink, action: preview}
+
+# PERMALINK
+permalink_folder:
+  url:   /p/f/:link
+  param: { module: folder, action: publicShow}
+
+permalink_folder_short:
+  url:   /f/:link
+  param: { module: folder, action: publicShow}
+
+permalink_show:
+  url:   /p/:link
+  param: { module: permalink, action: download}
+
+# SLIDE
+slide_xml:
+  url:   /slide/xml/:folder_id
+  param: { module: slide, action: xml }
+
+# UPLOAD
+upload_uploadify:
+  url:   /upload/uploadify/*
+  param: { module: upload, action: uploadify }
+  
+# EDITOR
+editor:
+  url:   /editor/load/:file_id/*
+  param: { module: editor, action: load }
+  
+# PUBLIC
+error:
+  url:   /error
+  param: { module: public, action: error }
+
+# RATE
+rate:
+  url:   /rate/:file_id/:star
+  param: { module: rate, action: rate }
+  
+# COMMENT
+comment_save:
+  url:   /comment/save/*
+  param: { module: comment, action: save }
+  
+comment_list:
+  url:   /comment/list/:file_id/:page
+  param: { module: comment, action: list, page: 1 }
+  
+comment_delete:
+  url:   /comment/delete/:id
+  param: { module: comment, action: delete }
+
+
+# REQUEST
+request_list:
+  url:   /alerts/:page
+  param: { module: request, action: list, page: 1 }
+  
+request_accept:
+  url:   /request/accept/*
+  param: { module: request, action: accept }
+  
+request_deny:
+  url:   /request/deny/*
+  param: { module: request, action: deny }
+  
+request_cancel:
+  url:   /request/cancel/:group_id
+  param: { module: request, action: cancel }
+
+request_cancel_folder:
+  url:   /request/cancelFolder/:folder_id
+  param: { module: request, action: cancelFolder }
+  
+
+# USER
+login:
+  url:   /login
+  param: { module: user, action: login }
+
+logouto:
+  url:   /logouto
+  param: { module: user, action: logouto }
+
+# GROUP
+groups:
+  url:   /groups/:user_id/*
+  param: { module: group, action: list, user_id: 0 }
+  
+group_home:
+  url:   /group/home/:author_id/*
+  param: { module: group, action: home, author_id: 0 }
+
+group_step1:
+  url:   /group/step1/:id/*
+  param: { module: group, action: step1, id: 0 }
+
+group_step2:
+  url:   /group/step2/:id/*
+  param: { module: group, action: userRights }
+  
+group_step3:
+  url:   /group/step3/:id/*
+  param: { module: group, action: step3 }
+
+group_delete:
+  url:   /group/delete/:id
+  param: { module: group, action: delete }
+  
+group_show:
+  url:   /group/show/:id/*
+  param: { module: group, action: show }
+  options:
+    app_expose: true
+
+thumbnail_upload:
+  url:   /thumbnail-upload
+  param: { module: group, action: thumbnailUpload }
+  
+# FILE
+file_home:
+  url:   /file/home/*
+  param: { module: file, action: home }
+  options:
+    segment_separators: ['/']
+
+file_thumbnail: 
+  url:   /image/thumbnail/:id
+  param: { module: file, action: thumbnail }
+
+# FILE
+tag_home:
+  url:   /tag/home/*
+  param: { module: tag, action: home }
+
+header_img_upload:
+  url:   /header-img-upload
+  param: { module: configuration, action: headerImgUpload }
+  options:
+    app_expose: true
+
+header_favicon_upload:
+  url:   /header-favicon-upload
+  param: { module: configuration, action: faviconImgUpload }
+  options:
+    app_expose: true
+
+header_watermark_upload:
+  url:   /header-watermark-upload
+  param: { module: configuration, action: watermarkImgUpload }
+  options:
+    app_expose: true
+
+header_email_upload:
+  url:   /header-email-upload
+  param: { module: configuration, action: emailImgUpload }
+  options:
+    app_expose: true
+
+### account ###
+account: 
+  url:   /account
+  param: { module: account, action: index }
+
+account_expired: 
+  url:   /account/expired
+  param: { module: account, action: expired }
+
+account_password: 
+  url:   /account/password
+  param: { module: account, action: password }
+
+account_permalink: 
+  url:   /account/permalinks
+  param: { module: account, action: permalinkList }
+
+account_permalink_album_list: 
+  url:   /account/permalinks/albums
+  param: { module: account, action: permalinkAlbumList }
+  
+account_permalink_folder_list: 
+  url:   /account/permalinks/folders
+  param: { module: account, action: permalinkFolderList }
+
+account_permalink_file_list: 
+  url:   /account/permalinks/files
+  param: { module: account, action: permalinkFileList }
+
+account_permalink_delete:
+  url:   /account/permalinks/:id/delete
+  param: { module: account, action: permalinkDelete }
+
+account_log: 
+  url:   /account/logs
+  param: { module: account, action: log }
+
+account_statistic: 
+  url:   /account/statistics
+  param: { module: account, action: statistic }
+
+account_module_list: 
+  url:   /account/modules
+  param: { module: account, action: moduleList }
+
+account_module_state_update: 
+  url:   /account/modules/:_module/updateState
+  param: { module: account, action: moduleUpdateState }
+  options:
+    app_expose: true
+
+account_module_delete: 
+  url:   /account/modules/:_module/delete
+  param: { module: account, action: moduleDelete }
+
+account_module_add: 
+  url:   /account/modules/add
+  param: { module: account, action: moduleAdd }
+
+# account public #
+acount_forgot_password: 
+  url:   /forgot-password
+  param: { module: account, action: forgotPassword }
+
+forgot-password:
+  url:   /forgot-password
+  param: { module: account, action: forgotPassword }
+
+account_reset_password: 
+  url:   /reset-password/:token
+  param: { module: account, action: resetPassword }
+
+logout:
+  url:   /logout
+  param: { module: account, action: logout }
+
+### admin ###
+admin_homepage: 
+  url:   /admin
+  param: { module: admin, action: index }
+
+# user
+admin_user_login_into: 
+  url:   /admin/users/:id/login
+  param: { module: admin, action: userLoginInto }
+
+admin_user_list: 
+  url:   /admin/users
+  param: { module: admin, action: userList }
+
+admin_user_new: 
+  url:   /admin/users/new
+  param: { module: admin, action: userNew }
+
+admin_user_edit: 
+  url:   /admin/users/:id/edit
+  param: { module: admin, action: userEdit }
+  options:
+    app_expose: true
+
+admin_user_delete: 
+  url:   /admin/users/:id/delete
+  param: { module: admin, action: userDelete }
+
+admin_user_activate:
+  url:   /admin/users/:id/activate
+  param: { module: admin, action: userActivate }
+
+admin_user_sendActivateEmail: 
+  url:   /admin/users/:id/sendActivateEmail
+  param: { module: admin, action: userSendActivateEmail }
+
+admin_user_password:
+  url:   /admin/users/:id/password
+  param: { module: admin, action: userPassword }
+
+admin_user_group_list: 
+  url:   /admin/users/:user/groups
+  param: { module: admin, action: userGroupList }
+
+admin_user_group_delete: 
+  url:   /admin/users/:user/groups/:group/delete
+  param: { module: admin, action: userGroupDelete }
+
+admin_user_group_add: 
+  url:   /admin/users/:user/groups/add
+  param: { module: admin, action: userGroupAdd }
+
+admin_user_group_autocomplete:
+  url:   /admin/user/group/autocomplete
+  param: { module: admin, action: userGroupAutocomplete }
+
+admin_user_module_list: 
+  url:   /admin/users/:user/modules
+  param: { module: admin, action: userModuleList }
+
+admin_user_module_state_update: 
+  url:   /admin/user/module/updateState
+  param: { module: admin, action: userModuleUpdateState }
+  options:
+    app_expose: true
+
+admin_user_module_delete: 
+  url:   /admin/user/module/delete
+  param: { module: admin, action: userModuleDelete }
+
+admin_user_module_add: 
+  url:   /admin/user/module/add
+  param: { module: admin, action: userModuleAdd }
+
+admin_user_album_right_list: 
+  url:   /admin/users/:user/album-rights
+  param: { module: admin, action: userAlbumRightList }
+
+admin_user_album_right_delete: 
+  url:   /admin/users/:user/album-rights/:album/delete
+  param: { module: admin, action: userAlbumRightDelete }
+
+admin_user_album_right_update: 
+  url:   /admin/users/:user/album-rights/:album/update
+  param: { module: admin, action: userAlbumRightUpdate }
+  options:
+    app_expose: true
+
+admin_user_album_right_add: 
+  url:   /admin/users/:user/album-rights/add
+  param: { module: admin, action: userAlbumRightAdd }
+
+admin_user_folder_right_list: 
+  url:   /admin/users/:user/folder-rights
+  param: { module: admin, action: userFolderRightList }
+
+# edit
+admin_edit: 
+  url:   /admin/edit
+  param: { module: admin, action: edit }
+
+
+# order
+admin_order_cancel:
+  url:   /admin/orders/:id/cancel
+  param: { module: admin, action: orderCancel }
+
+admin_order_get_price: 
+  url:   /admin/orders/getPrice
+  param: { module: admin, action: getPrice }
+  options:
+    app_expose: true
+
+admin_order_create: 
+  url:   /admin/orders/create
+  param: { module: admin, action: orderCreate }
+  options:
+    app_expose: true
+
+admin_order_new: 
+  url:   /admin/orders/:type/new
+  param: { module: admin, action: orderNew }
+
+admin_order_list: 
+  url:   /admin/orders
+  param: { module: admin, action: orderList }
+
+admin_order_show: 
+  url:   /admin/orders/:id/show
+  param: { module: admin, action: orderShow }
+
+admin_order_pdf_download: 
+  url:   /admin/orders/:id/downloadPdf/:ref
+  param: { module: admin, action: orderDownloadPdf }
+
+admin_invoice_list: 
+  url:   /admin/invoices
+  param: { module: admin, action: invoiceList }
+
+admin_invoice_show: 
+  url:   /admin/invoices/:id/show
+  param: { module: admin, action: invoiceShow }
+  
+admin_invoice_pdf_donwload: 
+  url:   /admin/invoices/:id/downloadPdf/:ref
+  param: { module: admin, action: invoiceDownloadPdf }
+
+# file
+admin_file_duplicate_list:
+  url:   /admin/files/duplicates
+  param: { module: admin, action: fileDuplicateList }
+
+admin_file_download:
+  url:   /admin/files/:id/download
+  param: { module: admin, action: fileDownload }
+
+admin_file_delete:
+  url:   /admin/files/:id/delete
+  param: { module: admin, action: fileDelete }
+
+# chart
+# admin_chart_edit: 
+#   url:   /admin/chart
+#   param: { module: admin, action: chartEdit }
+
+# module
+admin_module_list: 
+  url:   /admin/modules
+  param: { module: admin, action: moduleList }
+
+admin_module_add: 
+  url:   /admin/modules/add
+  param: { module: admin, action: moduleAdd }
+
+admin_module_value_update:
+  url:   /admin/modules/:moduleId/update
+  param: { module: admin, action: moduleValueUpdate }
+  options:
+    app_expose: true
+
+admin_module_value_activate:
+  url:   /admin/modules/:moduleId/activate
+  param: { module: admin, action: moduleValueActivate }
+  options:
+    app_expose: true
+
+# group / permissions
+admin_group_list: 
+  url:   /admin/groups
+  param: { module: admin, action: groupList }
+
+admin_group_new: 
+  url:   /admin/groups/new
+  param: { module: admin, action: groupNew }
+
+admin_group_edit: 
+  url:   /admin/groups/:id/edit
+  param: { module: admin, action: groupEdit }
+
+admin_group_delete: 
+  url:   /admin/groups/:id/delete
+  param: { module: admin, action: groupDelete }
+
+admin_group_user_list: 
+  url:   /admin/groups/:id/users
+  param: { module: admin, action: groupUserList }
+
+admin_group_user_add: 
+  url:   /admin/groups/:group/users/add
+  param: { module: admin, action: groupUserAdd }
+
+admin_group_user_autocomplete: 
+  url:   /admin/groups/:group/users/autocomplete
+  param: { module: admin, action: groupUserAutocomplete }
+  options:
+    app_expose: true
+
+admin_group_user_delete: 
+  url:   /admin/groups/:group/users/:user/delete
+  param: { module: admin, action: groupUserDelete }
+
+admin_group_permission_list:
+  url:   /admin/groups/:id/permissions
+  param: { module: admin, action: groupPermissionList }
+
+admin_group_permission_add:
+  url:   /admin/groups/:group/permissions/add
+  param: { module: admin, action: groupPermissionAdd }
+
+admin_group_permission_delete:
+  url:   /admin/groups/:group/permissions/:album/delete
+  param: { module: admin, action: groupPermissionDelete }
+
+admin_group_permission_update:
+  url:   /admin/groups/:group/permissions/:album/update
+  param: { module: admin, action: groupPermissionUpdate }
+  options:
+    app_expose: true
+
+# preset
+admin_preset_list:
+  url:   /admin/presets
+  param: { module: admin, action: presetList }
+
+admin_preset_new:
+  url:   /admin/presets/new
+  param: { module: admin, action: presetNew }
+
+admin_preset_edit:
+  url:   /admin/presets/:id/edit
+  param: { module: admin, action: presetEdit }
+
+admin_preset_delete:
+  url:   /admin/presets/:id/delete
+  param: { module: admin, action: presetDelete }
+
+admin_get_creative_commons:
+  url:   /admin/getCreativeCommons
+  param: { module: admin, action: getCreativeCommons }
+  options:
+    app_expose: true
+
+# tags
+admin_tag_list:
+  url:   /admin/keywords
+  param: { module: admin, action: tagList }
+
+admin_tag_replace_by:
+  url:   /admin/replace-by/:tag
+  param: { module: admin, action: replaceBy }
+  options:
+    app_expose: true
+
+admin_tag_new:
+  url:   /admin/keywords/new
+  param: { module: admin, action: tagNew }
+
+admin_tag_edit:
+  url:   /admin/keywords/:id/edit
+  param: { module: admin, action: tagEdit }
+
+admin_tag_delete:
+  url:   /admin/keywords/:id/delete
+  param: { module: admin, action: tagDelete }
+
+admin_tag_all_delete:
+  url:   /admin/keywords/elete
+  param: { module: admin, action: tagAllDelete }
+  options:
+    app_expose: true
+
+admin_tag_album_list:
+  url:   /admin/keywords/:tag/albums
+  param: { module: admin, action: tagAlbumList }
+
+admin_tag_album_delete:
+  url:   /admin/keywords/:tag/albums/:album/delete
+  param: { module: admin, action: tagAlbumDelete }
+
+admin_tag_folder_list:
+  url:   /admin/keywords/:tag/folders
+  param: { module: admin, action: tagFolderList }
+
+admin_tag_folder_delete:
+  url:   /admin/tags/:tag/folders/:folder/delete
+  param: { module: admin, action: tagFolderDelete }
+  
+admin_tag_file_list:
+  url:   /admin/keywords/:tag/files
+  param: { module: admin, action: tagFileList }
+
+admin_tag_file_delete:
+  url:   /admin/keywords/:tag/files/:file/delete
+  param: { module: admin, action: tagFileDelete }
+
+# logs
+admin_log_list:
+  url:   /admin/logs
+  param: { module: admin, action: logList }
+
+admin_usage_tracking: 
+  url:   /admin/usage-tracking
+  param: { module: admin, action: usageTracking }
+
+admin_usage_tracking_export: 
+  url:   /admin/usage-tracking/export
+  param: { module: admin, action: usageTrackingExport }
+  
+admin_usage_tracking_export_user: 
+  url:   /admin/usage-tracking/export-user
+  param: { module: admin, action: usageTrackingExportUser }
+
+#   Thesaurus 
+admin_thesaurus_random_tags:
+  url:   /admin/thesaurus/random-tags
+  param: { module: admin, action: thesaurusRandomTags }
+  options:
+    app_expose: true
+
+admin_thesaurus_list:
+  url:   /admin/thesaurus
+  param: { module: admin, action: thesaurusList }
+
+admin_thesaurus_add: 
+  url:   /admin/thesaurus/add
+  param: { module: admin, action: thesaurusAdd }
+  options:
+    app_expose: true
+
+admin_thesaurus_delete: 
+  url:   /admin/thesaurus/delete
+  param: { module: admin, action: thesaurusDelete }
+  options:
+    app_expose: true
+
+admin_thesaurus_tree: 
+  url:   /admin/thesaurus/tree
+  param: { module: admin, action: thesaurusTree }
+  options:
+    app_expose: true
+
+admin_thesaurus_update: 
+  url:   /admin/thesaurus/:id/update
+  param: { module: admin, action: thesaurusUpdate }
+  options:
+    app_expose: true
+
+admin_thesaurus_move: 
+  url:   /admin/thesaurus/move
+  param: { module: admin, action: thesaurusMove }
+  options:
+    app_expose: true
+
+# album
+admin_album_list:
+  url:   /admin/albums
+  param: { module: admin, action: albumList }
+
+admin_album_private_list:
+  url:   /admin/albums/private
+  param: { module: admin, action: albumPrivateList }
+  
+admin_album_new: 
+  url:   /admin/albums/new
+  param: { module: admin, action: albumNew }
+
+admin_album_delete: 
+  url:   /admin/albums/:id/delete
+  param: { module: admin, action: albumDelete }
+
+# basket - selection
+selection_list:
+  url:   /collections
+  param: { module: selection, action: list }
+
+selection_delete:
+  url:   /collections/:id/delete
+  param: { module: selection, action: delete }
+
+selection_edit:
+  url:   /collections/:id/edit
+  param: { module: selection, action: edit }
+
+selection_set_current:
+  url:   /collections/:id/set-current
+  param: { module: selection, action: setCurrent }
+
+selection_file_list:
+  url:   /collections/:selection/files
+  param: { module: selection, action: fileList }
+
+selection_file_delete:
+  url:   /collections/:selection/files/:file/delete
+  param: { module: selection, action: fileDelete }
+
+selection_email_send:
+  url:   /collections/:selection/email/send
+  param: { module: selection, action: emailSend }
+  
+selection_download:
+  url:   /collections/:selection/download
+  param: { module: selection, action: download }
+
+selection_feed_show: 
+  url:   /collections/:code/feed
+  param: { module: feed, action: feedCart }
+
+selection_print: 
+  url:   /collections/:id/print
+  param: { module: selection, action: print }
+
+selection_comment_list:
+  url:   /collections/:selection/comments
+  param: { module: selection, action: commentList }
+
+selection_comment_delete:
+  url:   /collections/comments/:id/delete
+  param: { module: selection, action: commentDelete }
+  options:
+    app_expose: true
+
+selection_comment_update:
+  url:   /collections/comments/:id/update
+  param: { module: selection, action: commentUpdate }
+  options:
+    app_expose: true
+
+selection_show_current: 
+  url:   /collections/show-current
+  param: { module: selection, action: showCurrent }
+
+selection_field:
+  url:   /collections/fields
+  param: { module: selection, action: field }
+
+# public selection
+public_selection_donwload: 
+  url:   /public/selections/download
+  param: { module: selection, action: publicDownload }
+  options:
+    app_expose: true
+
+public_selection_show_old: 
+  url:   /basket/public
+  param: { module: selection, action: publicShow }
+
+public_selection_show: 
+  url:   /public/selections/:code
+  param: { module: selection, action: publicShow }
+
+public_selection_comment_list: 
+  url:   /public/selections/:code/comments
+  param: { module: selection, action: publicCommentList }
+  options:
+    app_expose: true
+
+public_selection_comment_add: 
+  url:   /public/selections/:code/comment/add
+  param: { module: selection, action: publicCommentAdd }
+  options:
+    app_expose: true
+
+public_selection_slideshow: 
+  url:   /public/selections/:code/slideshow
+  param: { module: selection, action: publicSlideshow }
+  options:
+    app_expose: true
+
+public_selection_file_download:
+  url:   /public/selections/:code/files/:file/download
+  param: { module: selection, action: publicFileDownload }
+  options:
+    app_expose: true
+
+# group
+group_right_constraint_update:
+  url:   /group/:album/rights/constraints/:constraint/update
+  param: { module: group, action: rightConstraintUpdate }
+  options:
+    app_expose: true
+
+group_right_constraint_list:
+  url:   /group/:album/rights/constraints
+  param: { module: group, action: rightConstraintList }
+
+group_right_user_list:
+  url:   /group/:album/rights/users
+  param: { module: group, action: rightUserList }
+  options:
+    app_expose: true
+
+group_right_user_delete:
+  url:   /group/:album/rights/users/:user/delete
+  param: { module: group, action: rightUserDelete }
+  options:
+    app_expose: true
+
+group_right_user_notify:
+  url:   /group/:album/rights/users/:user/notify
+  param: { module: group, action: return }
+  options:
+    app_expose: true
+
+group_right_user_update:
+  url:   /group/:album/rights/users/:user/update
+  param: { module: group, action: rightUserUpdate }
+  options:
+    app_expose: true
+
+group_right_everybody_update:
+  url:   /group/:album/rights/everybody/update
+  param: { module: group, action: rightEverybodyUpdate }
+  options:
+    app_expose: true
+
+group_right_user_search:
+  url:   /group/:album/rights/user/search
+  param: { module: group, action: rightUser }
+  options:
+    app_expose: true
+
+group_right_group_search:
+  url:   /group/:album/rights/group/search
+  param: { module: group, action: rightGroup }
+  options:
+    app_expose: true
+
+group_right_group_list:
+  url:   /group/:album/rights/groups
+  param: { module: group, action: rightGroupList }
+  options:
+    app_expose: true
+
+group_right_group_update:
+  url:   /group/:album/rights/groups/:group/update
+  param: { module: group, action: rightGroupUpdate }
+  options:
+    app_expose: true
+
+group_right_group_delete:
+  url:   /group/:album/rights/groups/:group/delete
+  param: { module: group, action: rightGroupDelete }
+  options:
+    app_expose: true
+    
+group_share:
+  url:   /group/share
+  param: { module: group, action: share }
+  options:
+    app_expose: true
+
+# file
+file_show: 
+  url:   /files/:id/show
+  param: { module: file, action: show }
+
+# right
+right_support_add: 
+  url:   /right/supports/add
+  param: { module: right, action: supportAdd }
+  options:
+    app_expose: true
+
+# unit
+unit_results_fetch:
+  url:   /group/results/fetch
+  param: { module: unit, action: fetchAll }
+  options:
+    app_expose: true
+
+# user
+user_results_fetch:
+  url:   /user/results/fetch
+  param: { module: user, action: fetchUsers2 }
+  options:
+    app_expose: true
+
+# tag
+tag_fetchLexicon:
+  url:   /tag/fetchLexicon
+  param: { module: tag, action: fetchLexicon }
+  options:
+    app_expose: true
+
+#album
+album_list:
+  url:   /albums
+  param: { module: album, action: list }
+
+album_list_thumbnail:
+  url:   /albums/thumbnails
+  param: { module: album, action: listThumbnail }
+  options:
+    app_expose: true
+
+album_private_list:
+  url:   /albums/private
+  param: { module: album, action: privateList }
+
+album_private_list_thumbnail:
+  url:   /albums/private/thumbnails
+  param: { module: album, action: privateListThumbnail }
+  options:
+    app_expose: true
+
+album_shared_list:
+  url:   /albums/shared
+  param: { module: album, action: sharedList }
+
+album_shared_list_thumbnail:
+  url:   /albums/shared/thumbnails
+  param: { module: album, action: sharedListThumbnail }
+  options:
+    app_expose: true
+
+album_add:
+  url:   /albums/add
+  param: { module: album, action: add }
+  options:
+    app_expose: true
+
+album_show:
+  url:   /albums/:id
+  param: { module: group, action: show }
+  options:
+    app_expose: true
+
+album_generate_thumbnail:
+  url:   /albums/:album/generate-thumbnail
+  param: { module: album, action: generateThumbnail }
+  options:
+    app_expose: true
+
+# album - gestion des droits
+
+# par users
+album_right_user_list:
+  url:   /albums/:album/rights/users
+  param: { module: album, action: rightUserList }
+
+album_right_user_delete: 
+  url:   /albums/:album/rights/users/:user/delete
+  param: { module: album, action: rightUserDelete }
+
+album_right_user_update: 
+  url:   /albums/:album/rights/users/:user/update
+  param: { module: album, action: rightUserUpdate }
+  options:
+    app_expose: true
+
+album_right_user_notify:
+  url:   /albums/:album/rights/users/:user/notify
+  param: { module: album, action: notify }
+  options:
+    app_expose: true
+
+album_right_everybody_update:
+  url:   /albums/:album/rights/everybody/update
+  param: { module: album, action: rightEverybodyUpdate }
+  options:
+    app_expose: true
+
+# par groups
+album_right_group_list:
+  url:   /albums/:album/rights/groups
+  param: { module: album, action: rightGroupList }
+
+album_right_group_delete:
+  url:   /albums/:album/rights/groups/:group/delete
+  param: { module: album, action: rightGroupDelete }
+  options:
+    app_expose: true
+
+album_right_group_update:
+  url:   /albums/:album/rights/groups/:group/update
+  param: { module: album, action: rightGroupUpdate }
+  options:
+    app_expose: true
+
+folder_show: 
+  url:   /folders/:id
+  param: { module: folder, action: show }
+
+# default rules
+homepage:
+  url:   /
+  param: { module: public, action: home }
+
+default_symfony:
+  url:   /symfony/:action/*
+  param: { module: default }
+
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+
+#default:
+#  url:   /:module/:action/*
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action

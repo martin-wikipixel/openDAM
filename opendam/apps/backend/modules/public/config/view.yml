@@ -1,0 +1,9 @@
+infoEditSuccess:
+  javascripts:    [tiny_mce/tiny_mce.js]
+
+homeSuccess:
+  javascripts: [jquery.masonry.min.js, jquery.myWall.js]
+  stylesheets: [jquery-ui-1.7.1.custom.css]
+
+testSuccess:
+  has_layout: false

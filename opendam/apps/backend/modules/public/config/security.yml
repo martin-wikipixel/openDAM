@@ -1,0 +1,12 @@
+all:
+  is_secure: true
+setCulture:
+  is_secure: false
+redirect:
+  is_secure: false
+payment:
+  is_secure: false
+getIndicatif:
+  is_secure: false
+error:
+  is_secure: false
